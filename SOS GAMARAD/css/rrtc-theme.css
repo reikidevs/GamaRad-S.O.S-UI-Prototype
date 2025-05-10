@@ -1,0 +1,564 @@
+/* 
+ * GamaRad S.O.S - RRTC UGM Theme
+ * Based on Radiology Research and Training Center UGM design
+ */
+
+:root {
+    /* Main Color Palette - RRTC UGM Colors */
+    --rrtc-black: #1D1D1D;
+    --rrtc-dark: #252525;
+    --rrtc-dark-gray: #2A2A2A;
+    --rrtc-medium-gray: #333333;
+    --rrtc-light-gray: #888888;
+    --rrtc-gold: #FFB700;
+    --rrtc-gold-light: #FFCA3A;
+    --rrtc-gold-dark: #E6A600;
+    --rrtc-white: #ffffff;
+    --rrtc-off-white: #f5f5f5;
+    
+    /* Application Variables */
+    --primary-color: var(--rrtc-gold);
+    --primary-light: var(--rrtc-gold-light);
+    --primary-dark: var(--rrtc-gold-dark);
+    --secondary-color: var(--rrtc-dark);
+    --text-color: var(--rrtc-white);
+    --text-muted: var(--rrtc-light-gray);
+    --bg-color: var(--rrtc-black);
+    --bg-light: var(--rrtc-dark-gray);
+    --bg-dark: var(--rrtc-black);
+    --border-color: var(--rrtc-medium-gray);
+    --accent-color: var(--rrtc-gold);
+    
+    /* Status Colors */
+    --success-color: #48bb78;
+    --warning-color: #ed8936;
+    --error-color: #e53e3e;
+    --info-color: #4299e1;
+    
+    /* Typography */
+    --body-font: 'Poppins', sans-serif;
+    --heading-font: 'Poppins', sans-serif;
+    
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-xxl: 3rem;
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 20px;
+    --radius-round: 50%;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+    --shadow-gold: 0 5px 15px rgba(255, 183, 0, 0.4);
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, var(--rrtc-gold), var(--rrtc-gold-dark));
+    --gradient-dark: linear-gradient(135deg, var(--rrtc-dark), var(--rrtc-black));
+    --gradient-highlight: linear-gradient(135deg, #FFB700, #FFCA3A);
+}
+
+/* Global Reset with RRTC Theme */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: var(--body-font);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+/* Typography with RRTC style */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: var(--space-md);
+    color: var(--text-color);
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+h5 {
+    font-size: 1.1rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+p {
+    margin-bottom: var(--space-md);
+    color: var(--text-color);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--primary-light);
+}
+
+.highlight {
+    color: var(--primary-color);
+}
+
+/* Buttons styled like RRTC */
+.btn, button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: var(--rrtc-black);
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+.btn:hover, button:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-gold);
+}
+
+.btn-secondary {
+    background-color: var(--bg-light);
+    color: var(--text-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--rrtc-medium-gray);
+}
+
+/* Custom Scrollbar like RRTC */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: var(--radius-md);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+/* Cards with RRTC styling */
+.card {
+    background-color: var(--bg-light);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-title {
+    color: var(--primary-color);
+    margin-bottom: var(--space-sm);
+    font-weight: 600;
+}
+
+.card-content {
+    color: var(--text-color);
+}
+
+/* Inputs styled like RRTC */
+input, select, textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background-color: var(--bg-light);
+    color: var(--text-color);
+    font-family: var(--body-font);
+    font-size: 1rem;
+    transition: border var(--transition-fast);
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.25);
+}
+
+/* Header styled like RRTC */
+.app-header {
+    background-color: var(--bg-dark);
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) var(--space-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    height: 40px;
+    margin-right: var(--space-sm);
+}
+
+.header-title {
+    font-size: 1.4rem;
+    margin-bottom: 0;
+    font-weight: 700;
+}
+
+/* Navigation with RRTC style */
+.main-nav {
+    display: block;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin: 0 var(--space-md);
+}
+
+.nav-item a {
+    color: var(--text-color);
+    padding: var(--space-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-item a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width var(--transition-normal);
+}
+
+.nav-item a:hover::after {
+    width: 100%;
+}
+
+.nav-item.active a {
+    color: var(--primary-color);
+}
+
+.nav-item.active a::after {
+    width: 100%;
+}
+
+/* Footer styled like RRTC */
+.app-footer {
+    background-color: var(--rrtc-dark);
+    color: var(--text-color);
+    padding: var(--space-xl) 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--space-lg);
+}
+
+.footer-logo-img {
+    height: 50px;
+    margin-right: var(--space-md);
+}
+
+.footer-logo-text h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--space-xs);
+}
+
+.footer-logo-text p {
+    color: var(--text-muted);
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+.footer-info p {
+    margin-bottom: var(--space-xs);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    .header-container {
+        padding: var(--space-md);
+    }
+    
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-dark);
+        box-shadow: var(--shadow-md);
+        border-top: 1px solid var(--border-color);
+    }
+    
+    .main-nav.active {
+        display: block;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+    }
+    
+    .nav-item {
+        margin: 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .nav-item a {
+        padding: var(--space-md);
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .footer-logo {
+        margin-bottom: var(--space-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    html, body {
+        font-size: 14px;
+    }
+    
+    .header-title {
+        font-size: 1.2rem;
+    }
+}
+
+/* Animation Effects */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s forwards;
+}
+
+/* Gold Highlight Effects */
+.gold-glow {
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.gold-border {
+    border: 2px solid var(--primary-color);
+    border-radius: var(--radius-md);
+}
+
+/* Splash Screen RRTC Style */
+.splash-screen {
+    background-color: var(--bg-dark);
+    background-image: linear-gradient(to bottom right, var(--rrtc-black), var(--rrtc-dark-gray));
+}
+
+.app-logo-container {
+    background: var(--rrtc-dark);
+    border: 2px solid var(--primary-color);
+}
+
+/* Loading animations */
+.loading-spinner .spinner-circle {
+    border-top-color: var(--primary-color);
+}
+
+.loading-progress {
+    background-color: var(--primary-color);
+}
+
+/* Onboarding RRTC Style */
+.onboarding-container {
+    background-color: var(--bg-dark);
+}
+
+.slide-content {
+    background-color: var(--bg-light);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    border: 1px solid var(--border-color);
+}
+
+.nav-btn {
+    background-color: var(--bg-light);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.start-btn {
+    background-color: var(--primary-color);
+    color: var(--rrtc-black);
+}
+
+/* Home Page RRTC Style */
+.welcome-section {
+    background: var(--gradient-dark);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-xl);
+    text-align: center;
+}
+
+.category-card {
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.category-button {
+    background-color: var(--primary-color);
+    color: var(--rrtc-black);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-normal);
+}
+
+.category-button:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-gold);
+    color: var(--rrtc-black);
+}
+
+/* Toast Notifications */
+.toast {
+    background-color: var(--bg-light);
+    color: var(--text-color);
+    border-left: 3px solid var(--primary-color);
+}

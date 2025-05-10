@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Lotus Flower with Medical Cross in Center -->
+  <defs>
+    <linearGradient id="glowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f3c614" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#e53e3e" stop-opacity="0.5" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Glow Effect -->
+  <circle cx="100" cy="100" r="90" fill="none" stroke="url(#glowGradient)" stroke-width="1" opacity="0.5">
+    <animate attributeName="r" values="85;90;85" dur="3s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="3s" repeatCount="indefinite" />
+  </circle>
+  
+  <!-- Lotus Petals (Outer Ring) -->
+  <g fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9">
+    <!-- Petal 1 -->
+    <path d="M100,30 C120,50 130,70 100,100 C70,70 80,50 100,30" />
+    
+    <!-- Petal 2 -->
+    <path d="M145,55 C145,85 130,100 100,100 C100,70 120,55 145,55" transform="rotate(45 100 100)" />
+    
+    <!-- Petal 3 -->
+    <path d="M170,100 C150,120 130,130 100,100 C130,70 150,80 170,100" />
+    
+    <!-- Petal 4 -->
+    <path d="M145,145 C115,145 100,130 100,100 C130,100 145,120 145,145" transform="rotate(45 100 100)" />
+    
+    <!-- Petal 5 -->
+    <path d="M100,170 C80,150 70,130 100,100 C130,130 120,150 100,170" />
+    
+    <!-- Petal 6 -->
+    <path d="M55,145 C55,115 70,100 100,100 C100,130 80,145 55,145" transform="rotate(45 100 100)" />
+    
+    <!-- Petal 7 -->
+    <path d="M30,100 C50,80 70,70 100,100 C70,130 50,120 30,100" />
+    
+    <!-- Petal 8 -->
+    <path d="M55,55 C85,55 100,70 100,100 C70,100 55,80 55,55" transform="rotate(45 100 100)" />
+  </g>
+  
+  <!-- Inner Circle -->
+  <circle cx="100" cy="100" r="35" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.8" />
+  
+  <!-- Medical Cross -->
+  <g fill="#e53e3e">
+    <rect x="90" y="75" width="20" height="50" rx="3" />
+    <rect x="75" y="90" width="50" height="20" rx="3" />
+  </g>
+  
+  <!-- Subtle Radiating Lines for Radiology Concept -->
+  <g stroke="#ffffff" stroke-width="0.3" opacity="0.4">
+    <line x1="100" y1="45" x2="100" y2="35" />
+    <line x1="155" y1="100" x2="165" y2="100" />
+    <line x1="100" y1="155" x2="100" y2="165" />
+    <line x1="45" y1="100" x2="35" y2="100" />
+    
+    <line x1="135" y1="65" x2="145" y2="55" />
+    <line x1="135" y1="135" x2="145" y2="145" />
+    <line x1="65" y1="135" x2="55" y2="145" />
+    <line x1="65" y1="65" x2="55" y2="55" />
+  </g>
+</svg>

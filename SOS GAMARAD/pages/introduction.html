@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#1D1D1D">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <title>GamaRad S.O.S - Pengenalan</title>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/rrtc-theme.css">
+    <link rel="stylesheet" href="../css/introduction.css">
+    <link rel="stylesheet" href="../css/mobile-enhancements.css">
+</head>
+<body>
+    <div class="onboarding-container">
+
+        
+        <!-- Logo Header -->
+        <div class="logo-header">
+            <img src="../img/Lambang-UGM-putih.png" alt="Logo UGM" class="ugm-logo">
+            <h1 class="app-title">GamaRad <span class="highlight">S.O.S</span></h1>
+        </div>
+        
+        <!-- Swiper -->
+        <div class="swiper onboarding-swiper">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <img src="../img/slides/slide1.svg" alt="Welcome to GamaRad S.O.S" class="slide-image">
+                        <h1>Selamat Datang di GamaRad S.O.S</h1>
+                        <p>Tools penting untuk pembelajaran radiologi emergensi</p>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <img src="../img/slides/slide2.svg" alt="For Healthcare Professionals" class="slide-image">
+                        <h2>Untuk Tenaga Kesehatan</h2>
+                        <p>Dirancang untuk radiologis, dokter emergensi, dan mahasiswa kedokteran</p>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <img src="../img/slides/slide3.svg" alt="Quick & Accurate Diagnosis" class="slide-image">
+                        <h2>Diagnosis Cepat & Akurat</h2>
+                        <p>Pelajari cara mengidentifikasi temuan penting pada citra radiologi emergensi</p>
+                    </div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <img src="../img/slides/slide4.svg" alt="Improve Patient Care" class="slide-image">
+                        <h2>Tingkatkan Kualitas Perawatan</h2>
+                        <p>Kembangkan keterampilan untuk memberikan perawatan lebih baik dalam situasi emergensi</p>
+                    </div>
+                </div>
+                <!-- Slide 5 -->
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <img src="../img/slides/slide5.svg" alt="Real-time Learning" class="slide-image">
+                        <h2>Menjembatani Kesenjangan Pengetahuan</h2>
+                        <p>Akses materi pembelajaran komprehensif secara real-time</p>
+                    </div>
+                </div>
+                <!-- Slide 6 -->
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <img src="../img/slides/slide6.svg" alt="Interdisciplinary collaboration" class="slide-image">
+                        <h2>Mendorong Kolaborasi</h2>
+                        <p>Terhubung dengan rekan dari berbagai spesialisasi medis</p>
+                        <div class="developer-info">
+                            <p>Dikembangkan oleh Fakultas Kedokteran, Kesehatan Masyarakat dan Keperawatan, Universitas Gadjah Mada</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+                    <!-- Skip Button (moved outside of nav-buttons for better positioning) -->
+        <button id="skip-btn" class="skip-btn"><i class="fas fa-forward"></i> Skip</button>
+            <!-- Pagination -->
+            <div class="swiper-pagination"></div>
+            
+            <!-- Navigation Buttons -->
+            <div class="nav-buttons">
+                <!-- Progress Bar - Enhanced with aria labels for accessibility -->
+                <div class="progress-container">
+                    <div class="progress-bar" aria-label="Progress of introduction slides">
+                        <div class="progress-fill" id="progress-fill" style="width: 0%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" role="progressbar"></div>
+                    </div>
+                    <div class="slides-counter">
+                        <span id="current-slide">1</span>
+                        <span>/</span>
+                        <span id="total-slides">6</span>
+                    </div>
+                </div>
+                
+                <div class="main-nav-buttons">
+                    <button id="prev-btn" class="nav-btn prev-btn nav-btn-hidden" aria-label="Previous slide"><i class="fas fa-arrow-left"></i> Kembali</button>
+                    <button id="next-btn" class="nav-btn next-btn" aria-label="Next slide">Lanjut <i class="fas fa-arrow-right"></i></button>
+                    <button id="start-app-btn" class="nav-btn start-btn animated-start-btn" style="display: none;" aria-label="Start application">Mulai Aplikasi <i class="fas fa-play"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+    <script src="../js/mobile-utils.js"></script>
+    <script src="../js/introduction.js"></script>
+</body>
+</html>

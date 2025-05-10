@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamaRad S.O.S - Case Detail</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/rrtc-theme.css">
+    <link rel="stylesheet" href="../css/gamarad.css">
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="app-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="../img/cropped-Simbol-Logo-Garis.png" alt="GamaRad Logo" class="header-logo">
+                <h1 class="header-title">GamaRad <span class="highlight">S.O.S</span></h1>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li class="nav-item"><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="nav-item"><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li class="nav-item"><a href="#" id="search-toggle"><i class="fas fa-search"></i> Search</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Search Bar (Hidden by default) -->
+        <div class="search-container" id="search-container">
+            <div class="search-box">
+                <input type="text" placeholder="Cari Case atau Learning..." class="search-input">
+                <button class="search-button"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Case Header -->
+        <section class="case-header" id="case-header">
+            <!-- Content will be populated dynamically with JavaScript -->
+            <div class="case-banner">
+                <div class="case-banner-image">
+                    <img src="../img/cases/pneumothorax-banner.jpg" alt="Pneumothorax">
+                </div>
+                <div class="case-banner-overlay"></div>
+                <div class="case-banner-content">
+                    <div class="case-badge">Common</div>
+                    <h2 class="case-title">Pneumothorax</h2>
+                    <div class="case-meta">
+                        <span><i class="fas fa-folder"></i> Chest (Thorax)</span>
+                        <span><i class="fas fa-graduation-cap"></i> 5 Learning Topics</span>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="breadcrumb">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="regio.html?id=chest">Chest (Thorax)</a></li>
+                    <li class="current">Pneumothorax</li>
+                </ul>
+            </nav>
+            
+            <div class="case-overview">
+                <p>Pneumothorax adalah kondisi dimana terdapat udara bebas di dalam rongga pleura yang menyebabkan kolaps paru. Kondisi ini dapat terjadi secara spontan, traumatik, atau iatrogenik. Pelajari pengenalan, diagnosis, dan manajemen kasus pneumothorax dengan materi pembelajaran interaktif berikut.</p>
+            </div>
+        </section>
+
+        <!-- Learning Topics -->
+        <section class="learning-section">
+            <h3 class="section-title">Materi Pembelajaran</h3>
+            
+            <div class="learning-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%"></div>
+                </div>
+                <div class="progress-stats">
+                    <span class="progress-percent">60% Selesai</span>
+                    <span class="progress-detail">3 dari 5 Topik</span>
+                </div>
+            </div>
+            
+            <div class="learning-list">
+                <!-- Topic 1: Terminology -->
+                <div class="learning-item completed">
+                    <div class="learning-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="learning-content">
+                        <h4>Terminology</h4>
+                        <p>Definisi, klasifikasi, dan terminologi terkait pneumothorax.</p>
+                        <div class="learning-status">
+                            <span class="status-badge completed"><i class="fas fa-check"></i> Selesai</span>
+                        </div>
+                    </div>
+                    <a href="learning.html?id=pneumothorax&topic=terminology" class="learning-button"><i class="fas fa-play"></i></a>
+                </div>
+                
+                <!-- Topic 2: Clinical Presentation -->
+                <div class="learning-item completed">
+                    <div class="learning-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <div class="learning-content">
+                        <h4>Clinical Presentation</h4>
+                        <p>Gejala dan tanda klinis pneumothorax, termasuk variasi presentasi klinis.</p>
+                        <div class="learning-status">
+                            <span class="status-badge completed"><i class="fas fa-check"></i> Selesai</span>
+                        </div>
+                    </div>
+                    <a href="learning.html?id=pneumothorax&topic=clinical-presentation" class="learning-button"><i class="fas fa-play"></i></a>
+                </div>
+                
+                <!-- Topic 3: Radiological Findings -->
+                <div class="learning-item completed">
+                    <div class="learning-icon">
+                        <i class="fas fa-x-ray"></i>
+                    </div>
+                    <div class="learning-content">
+                        <h4>Radiological Findings</h4>
+                        <p>Temuan radiologis pada kasus pneumothorax dengan berbagai modalitas pencitraan.</p>
+                        <div class="learning-status">
+                            <span class="status-badge completed"><i class="fas fa-check"></i> Selesai</span>
+                        </div>
+                    </div>
+                    <a href="learning.html?id=pneumothorax&topic=radiological-findings" class="learning-button"><i class="fas fa-play"></i></a>
+                </div>
+                
+                <!-- Topic 4: Management -->
+                <div class="learning-item current">
+                    <div class="learning-icon">
+                        <i class="fas fa-procedures"></i>
+                    </div>
+                    <div class="learning-content">
+                        <h4>Management</h4>
+                        <p>Pendekatan terapi dan tatalaksana pneumothorax berdasarkan jenis dan severitas.</p>
+                        <div class="learning-status">
+                            <span class="status-badge current"><i class="fas fa-circle"></i> Sedang Dipelajari</span>
+                        </div>
+                    </div>
+                    <a href="learning.html?id=pneumothorax&topic=management" class="learning-button"><i class="fas fa-play"></i></a>
+                </div>
+                
+                <!-- Topic 5: Quiz -->
+                <div class="learning-item locked">
+                    <div class="learning-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <div class="learning-content">
+                        <h4>Quiz</h4>
+                        <p>Evaluasi pemahaman Anda melalui kuis interaktif tentang pneumothorax.</p>
+                        <div class="learning-status">
+                            <span class="status-badge locked"><i class="fas fa-lock"></i> Terkunci</span>
+                            <span class="status-note">Selesaikan semua topik sebelumnya untuk membuka</span>
+                        </div>
+                    </div>
+                    <a href="#" class="learning-button disabled"><i class="fas fa-lock"></i></a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Related Cases -->
+        <section class="related-section">
+            <h3 class="section-title">Kasus Terkait</h3>
+            
+            <div class="related-cases">
+                <div class="related-case">
+                    <div class="related-image">
+                        <img src="../img/cases/tension-pneumothorax-thumb.jpg" alt="Tension Pneumothorax">
+                    </div>
+                    <div class="related-content">
+                        <h4>Tension Pneumothorax</h4>
+                        <p>Pneumothorax dengan peningkatan tekanan yang menekan struktur mediastinal.</p>
+                        <a href="case.html?id=tension-pneumothorax">Pelajari <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="related-case">
+                    <div class="related-image">
+                        <img src="../img/cases/pleural-effusion-thumb.jpg" alt="Pleural Effusion">
+                    </div>
+                    <div class="related-content">
+                        <h4>Pleural Effusion</h4>
+                        <p>Penumpukan cairan abnormal di dalam rongga pleura.</p>
+                        <a href="case.html?id=pleural-effusion">Pelajari <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="../img/cropped-Simbol-Logo-Garis.png" alt="GamaRad Logo" class="footer-logo-img">
+                <div class="footer-logo-text">
+                    <h3>GamaRad S.O.S</h3>
+                    <p>Sistem Onboarding Siaga Radiologi</p>
+                </div>
+            </div>
+            <div class="footer-info">
+                <p>Fakultas Kedokteran, Kesehatan Masyarakat dan Keperawatan</p>
+                <p>Universitas Gadjah Mada</p>
+                <p>&copy; 2025 GamaRad S.O.S</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="../js/app.js"></script>
+    <script src="../js/case.js"></script>
+</body>
+</html>

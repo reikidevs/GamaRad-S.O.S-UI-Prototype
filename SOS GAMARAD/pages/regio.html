@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamaRad S.O.S - Regio Detail</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/rrtc-theme.css">
+    <link rel="stylesheet" href="../css/gamarad.css">
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="app-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="../img/cropped-Simbol-Logo-Garis.png" alt="GamaRad Logo" class="header-logo">
+                <h1 class="header-title">GamaRad <span class="highlight">S.O.S</span></h1>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li class="nav-item"><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="nav-item"><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li class="nav-item"><a href="#" id="search-toggle"><i class="fas fa-search"></i> Search</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Search Bar (Hidden by default) -->
+        <div class="search-container" id="search-container">
+            <div class="search-box">
+                <input type="text" placeholder="Cari Case..." class="search-input">
+                <button class="search-button"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Regio Header -->
+        <section class="regio-header" id="regio-header">
+            <!-- This content will be populated dynamically with JavaScript -->
+            <div class="regio-banner">
+                <h2 class="regio-title">Chest (Thorax)</h2>
+                <p class="regio-description">Radiologi emergensi untuk regio thorax, mencakup berbagai kasus patologi seperti pneumothorax, efusi pleura, dan fraktur tulang rusuk.</p>
+            </div>
+            <nav class="breadcrumb">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li class="current">Chest (Thorax)</li>
+                </ul>
+            </nav>
+        </section>
+
+        <!-- Case List -->
+        <section class="case-section">
+            <h3 class="section-title">Kasus Klinis</h3>
+            
+            <div class="case-grid">
+                <!-- Case 1: Pneumothorax -->
+                <div class="case-card">
+                    <div class="case-image">
+                        <img src="../img/cases/pneumothorax-thumb.jpg" alt="Pneumothorax">
+                        <div class="case-badge">Common</div>
+                    </div>
+                    <div class="case-content">
+                        <h3>Pneumothorax</h3>
+                        <p>Udara bebas di dalam rongga pleura yang menyebabkan kolaps paru.</p>
+                        <div class="case-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%"></div>
+                            </div>
+                            <span class="progress-text">75% Selesai</span>
+                        </div>
+                        <a href="case.html?id=pneumothorax" class="case-button">Pelajari Kasus</a>
+                    </div>
+                </div>
+                
+                <!-- Case 2: Rib Fracture -->
+                <div class="case-card">
+                    <div class="case-image">
+                        <img src="../img/cases/rib-fracture-thumb.jpg" alt="Rib Fracture">
+                        <div class="case-badge">Common</div>
+                    </div>
+                    <div class="case-content">
+                        <h3>Rib Fracture</h3>
+                        <p>Patah tulang rusuk, sering terjadi akibat trauma pada dinding dada.</p>
+                        <div class="case-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%"></div>
+                            </div>
+                            <span class="progress-text">100% Selesai</span>
+                        </div>
+                        <a href="case.html?id=rib-fracture" class="case-button">Pelajari Kasus</a>
+                    </div>
+                </div>
+                
+                <!-- Case 3: Pleural Effusion -->
+                <div class="case-card">
+                    <div class="case-image">
+                        <img src="../img/cases/pleural-effusion-thumb.jpg" alt="Pleural Effusion">
+                        <div class="case-badge">Common</div>
+                    </div>
+                    <div class="case-content">
+                        <h3>Pleural Effusion</h3>
+                        <p>Penumpukan cairan abnormal di dalam rongga pleura.</p>
+                        <div class="case-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                            <span class="progress-text">0% Selesai</span>
+                        </div>
+                        <a href="case.html?id=pleural-effusion" class="case-button">Pelajari Kasus</a>
+                    </div>
+                </div>
+                
+                <!-- Case 4: Pulmonary Edema -->
+                <div class="case-card">
+                    <div class="case-image">
+                        <img src="../img/cases/pulmonary-edema-thumb.jpg" alt="Pulmonary Edema">
+                        <div class="case-badge">Advanced</div>
+                    </div>
+                    <div class="case-content">
+                        <h3>Pulmonary Edema</h3>
+                        <p>Penumpukan cairan di alveoli dan jaringan interstisial paru.</p>
+                        <div class="case-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                            <span class="progress-text">0% Selesai</span>
+                        </div>
+                        <a href="case.html?id=pulmonary-edema" class="case-button">Pelajari Kasus</a>
+                    </div>
+                </div>
+                
+                <!-- Case 5: Pneumonia -->
+                <div class="case-card">
+                    <div class="case-image">
+                        <img src="../img/cases/pneumonia-thumb.jpg" alt="Pneumonia">
+                        <div class="case-badge">Common</div>
+                    </div>
+                    <div class="case-content">
+                        <h3>Pneumonia</h3>
+                        <p>Infeksi pada paru yang menyebabkan inflamasi pada alveoli.</p>
+                        <div class="case-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 25%"></div>
+                            </div>
+                            <span class="progress-text">25% Selesai</span>
+                        </div>
+                        <a href="case.html?id=pneumonia" class="case-button">Pelajari Kasus</a>
+                    </div>
+                </div>
+                
+                <!-- Case 6: Tension Pneumothorax -->
+                <div class="case-card">
+                    <div class="case-image">
+                        <img src="../img/cases/tension-pneumothorax-thumb.jpg" alt="Tension Pneumothorax">
+                        <div class="case-badge">Emergency</div>
+                    </div>
+                    <div class="case-content">
+                        <h3>Tension Pneumothorax</h3>
+                        <p>Pneumothorax dengan peningkatan tekanan yang menekan struktur mediastinal.</p>
+                        <div class="case-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                            <span class="progress-text">0% Selesai</span>
+                        </div>
+                        <a href="case.html?id=tension-pneumothorax" class="case-button">Pelajari Kasus</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="../img/cropped-Simbol-Logo-Garis.png" alt="GamaRad Logo" class="footer-logo-img">
+                <div class="footer-logo-text">
+                    <h3>GamaRad S.O.S</h3>
+                    <p>Sistem Onboarding Siaga Radiologi</p>
+                </div>
+            </div>
+            <div class="footer-info">
+                <p>Fakultas Kedokteran, Kesehatan Masyarakat dan Keperawatan</p>
+                <p>Universitas Gadjah Mada</p>
+                <p>&copy; 2025 GamaRad S.O.S</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="../js/app.js"></script>
+    <script src="../js/regio.js"></script>
+</body>
+</html>

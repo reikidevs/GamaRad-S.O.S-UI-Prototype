@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#1e1e1e">
+    <title>GamaRad S.O.S - Home</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/rrtc-theme.css">
+    <link rel="stylesheet" href="../css/gamarad.css">
+    <link rel="stylesheet" href="../css/mobile-enhancements.css">
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="app-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="../img/cropped-Simbol-Logo-Garis.png" alt="GamaRad Logo" class="header-logo">
+                <h1 class="header-title">GamaRad <span class="highlight">S.O.S</span></h1>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li class="nav-item active"><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="nav-item"><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li class="nav-item"><a href="#" id="search-toggle"><i class="fas fa-search"></i> Search</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Search Bar (Hidden by default) -->
+        <div class="search-container" id="search-container">
+            <div class="search-box">
+                <input type="text" placeholder="Cari Regio atau Case..." class="search-input">
+                <button class="search-button"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+            <div class="welcome-content">
+                <h2>Selamat Datang di GamaRad S.O.S</h2>
+                <p>Pelajari radiologi emergensi dengan mudah dan interaktif. Pilih regio anatomi untuk memulai.</p>
+            </div>
+        </section>
+
+        <!-- Regio Categories -->
+        <section class="categories-section">
+            <h2 class="section-title">Pilih Regio Anatomi</h2>
+            
+            <div class="category-grid">
+                <!-- Chest Category -->
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="../img/categories/chest.jpg" alt="Chest">
+                    </div>
+                    <div class="category-content">
+                        <h3>Chest (Thorax)</h3>
+                        <p>Radiologi emergensi untuk regio thorax</p>
+                        <a href="regio.html?id=chest" class="category-button">Lihat Case</a>
+                    </div>
+                </div>
+                
+                <!-- Head Category -->
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="../img/categories/head.jpg" alt="Head">
+                    </div>
+                    <div class="category-content">
+                        <h3>Head (Cranium)</h3>
+                        <p>Radiologi emergensi untuk regio cranium</p>
+                        <a href="regio.html?id=head" class="category-button">Lihat Case</a>
+                    </div>
+                </div>
+                
+                <!-- Extremity Category -->
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="../img/categories/extremity.jpg" alt="Extremity">
+                    </div>
+                    <div class="category-content">
+                        <h3>Extremitas</h3>
+                        <p>Radiologi emergensi untuk regio extremitas</p>
+                        <a href="regio.html?id=extremity" class="category-button">Lihat Case</a>
+                    </div>
+                </div>
+                
+                <!-- Abdomen Category -->
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="../img/categories/abdomen.jpg" alt="Abdomen">
+                    </div>
+                    <div class="category-content">
+                        <h3>Abdomen</h3>
+                        <p>Radiologi emergensi untuk regio abdomen</p>
+                        <a href="regio.html?id=abdomen" class="category-button">Lihat Case</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Activity -->
+        <section class="activity-section">
+            <h2 class="section-title">Aktivitas Terakhir</h2>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-book-reader"></i></div>
+                    <div class="activity-content">
+                        <h4>Pneumothorax</h4>
+                        <p>Anda telah mempelajari terminology dan clinical presentation</p>
+                        <span class="activity-time">3 jam yang lalu</span>
+                    </div>
+                    <a href="case.html?id=pneumothorax" class="activity-link">Lanjutkan <i class="fas fa-chevron-right"></i></a>
+                </div>
+                
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-clipboard-check"></i></div>
+                    <div class="activity-content">
+                        <h4>Ribs Fracture</h4>
+                        <p>Anda telah menyelesaikan quiz dengan skor 80%</p>
+                        <span class="activity-time">1 hari yang lalu</span>
+                    </div>
+                    <a href="case.html?id=ribs-fracture" class="activity-link">Lihat Detail <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="../img/cropped-Simbol-Logo-Garis.png" alt="GamaRad Logo" class="footer-logo-img">
+                <div class="footer-logo-text">
+                    <h3>GamaRad S.O.S</h3>
+                    <p>Sistem Onboarding Siaga Radiologi</p>
+                </div>
+            </div>
+            <div class="footer-info">
+                <p>Fakultas Kedokteran, Kesehatan Masyarakat dan Keperawatan</p>
+                <p>Universitas Gadjah Mada</p>
+                <p>&copy; 2025 GamaRad S.O.S</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <ul class="mobile-nav-list">
+            <li class="mobile-nav-item">
+                <a href="home.html" class="mobile-nav-link active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="regio.html" class="mobile-nav-link">
+                    <i class="fas fa-book-medical"></i>
+                    <span>Regio</span>
+                </a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link" id="mobile-search">
+                    <i class="fas fa-search"></i>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="about.html" class="mobile-nav-link">
+                    <i class="fas fa-info-circle"></i>
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+    <!-- Touch Feedback Indicator -->
+    <div class="back-gesture-hint"></div>
+    
+    <!-- Custom JS -->
+    <script src="../js/app.js"></script>
+    <script src="../js/mobile-utils.js"></script>
+</body>
+</html>

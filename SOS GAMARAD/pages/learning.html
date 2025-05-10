@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamaRad S.O.S - Learning Material</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lightbox CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/rrtc-theme.css">
+    <link rel="stylesheet" href="../css/gamarad.css">
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="app-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="../img/cropped-Simbol-Logo-Garis.png" alt="GamaRad Logo" class="header-logo">
+                <h1 class="header-title">GamaRad <span class="highlight">S.O.S</span></h1>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li class="nav-item"><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="nav-item"><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li class="nav-item"><a href="#" id="search-toggle"><i class="fas fa-search"></i> Search</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Search Bar (Hidden by default) -->
+        <div class="search-container" id="search-container">
+            <div class="search-box">
+                <input type="text" placeholder="Cari dalam materi..." class="search-input">
+                <button class="search-button"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Learning Header -->
+        <section class="learning-header" id="learning-header">
+            <!-- Content will be populated dynamically with JavaScript -->
+            <div class="learning-info">
+                <div class="learning-topic-icon">
+                    <i class="fas fa-x-ray"></i>
+                </div>
+                <div class="learning-topic-details">
+                    <h2 class="learning-title">Radiological Findings</h2>
+                    <div class="learning-meta">
+                        <span>Pneumothorax</span>
+                        <span>•</span>
+                        <span>Topic 3 dari 5</span>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="breadcrumb">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="regio.html?id=chest">Chest (Thorax)</a></li>
+                    <li><a href="case.html?id=pneumothorax">Pneumothorax</a></li>
+                    <li class="current">Radiological Findings</li>
+                </ul>
+            </nav>
+            
+            <!-- Learning Navigation -->
+            <div class="learning-navigation">
+                <a href="learning.html?id=pneumothorax&topic=clinical-presentation" class="nav-prev">
+                    <i class="fas fa-chevron-left"></i> 
+                    <span>Previous: Clinical Presentation</span>
+                </a>
+                <a href="learning.html?id=pneumothorax&topic=management" class="nav-next">
+                    <span>Next: Management</span>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Learning Content -->
+        <section class="learning-content">
+            <div class="content-block">
+                <h3>Temuan Radiologis Pneumothorax</h3>
+                <p>Pneumothorax dapat terlihat pada berbagai modalitas pencitraan, namun diagnosis paling umum dilakukan dengan menggunakan foto toraks polos (chest X-ray) dengan proyeksi postero-anterior (PA).</p>
+                
+                <div class="image-block">
+                    <a href="../img/learning/pneumothorax-cxr.jpg" data-lightbox="pneumothorax" data-title="Pneumothorax pada CXR PA">
+                        <img src="../img/learning/pneumothorax-cxr.jpg" alt="Pneumothorax pada CXR PA" class="content-image">
+                    </a>
+                    <div class="image-caption">Gambar 1: Pneumothorax pada Chest X-Ray proyeksi PA. Perhatikan adanya garis pleura visceral (batas paru) yang terpisah dari dinding toraks (panah merah) dengan area radiolusen di luar paru.</div>
+                </div>
+                
+                <h4>Temuan Radiografis Utama</h4>
+                <ul class="content-list">
+                    <li><strong>Garis pleura visceral:</strong> Adanya garis tipis yang merepresentasikan batas paru yang kolaps. Garis ini terpisah dari dinding toraks dengan area radiolusen di antaranya.</li>
+                    <li><strong>Tidak adanya markings vaskuler:</strong> Pada area di luar garis pleura visceral, tidak tampak vascular markings atau rongga udara.</li>
+                    <li><strong>Hiperlusensi:</strong> Area di luar paru yang kolaps tampak lebih radiolusen (lebih hitam) dibandingkan parenkim paru normal.</li>
+                    <li><strong>Deep sulcus sign:</strong> Pada pneumothorax di basal paru, dapat tampak sebagai area radiolusen yang meluas ke sudut kostofrenikus.</li>
+                </ul>
+                
+                <div class="info-box">
+                    <div class="info-icon"><i class="fas fa-info-circle"></i></div>
+                    <div class="info-content">
+                        <h5>Posisi Pasien</h5>
+                        <p>Pneumothorax paling mudah terdeteksi pada foto toraks yang diambil dalam posisi tegak (erect). Pada pasien yang tidak dapat diposisikan tegak, dapat dilakukan foto dalam posisi supine, namun pneumothorax dapat terlewatkan atau muncul sebagai 'deep sulcus sign'.</p>
+                    </div>
+                </div>
+                
+                <h4>Pneumothorax pada CT Scan</h4>
+                <p>CT scan toraks sangat sensitif untuk mendeteksi pneumothorax, terutama pneumothorax kecil yang mungkin tidak terlihat pada foto toraks konvensional.</p>
+                
+                <div class="image-grid">
+                    <div class="grid-item">
+                        <a href="../img/learning/pneumothorax-ct1.jpg" data-lightbox="pneumothorax-ct" data-title="Pneumothorax pada CT Scan (Axial View)">
+                            <img src="../img/learning/pneumothorax-ct1.jpg" alt="Pneumothorax pada CT Scan (Axial)" class="grid-image">
+                        </a>
+                    </div>
+                    <div class="grid-item">
+                        <a href="../img/learning/pneumothorax-ct2.jpg" data-lightbox="pneumothorax-ct" data-title="Pneumothorax pada CT Scan (Coronal View)">
+                            <img src="../img/learning/pneumothorax-ct2.jpg" alt="Pneumothorax pada CT Scan (Coronal)" class="grid-image">
+                        </a>
+                    </div>
+                </div>
+                <div class="image-caption">Gambar 2 & 3: Pneumothorax pada CT Scan toraks dalam potongan axial dan coronal. Perhatikan adanya udara (area hitam) di antara pleura visceral dan parietal.</div>
+                
+                <h4>Klasifikasi Pneumothorax Berdasarkan Ukuran</h4>
+                <p>Ukuran pneumothorax dapat diukur pada foto toraks PA, dan diklasifikasikan sebagai berikut:</p>
+                
+                <div class="table-container">
+                    <table class="content-table">
+                        <thead>
+                            <tr>
+                                <th>Klasifikasi</th>
+                                <th>Ukuran</th>
+                                <th>Karakteristik</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Kecil</td>
+                                <td>&lt; 20%</td>
+                                <td>Jarak dari apeks paru ke kubah thoraks &lt; 3 cm</td>
+                            </tr>
+                            <tr>
+                                <td>Sedang</td>
+                                <td>20-50%</td>
+                                <td>Jarak dari apeks paru ke kubah thoraks 3-6 cm</td>
+                            </tr>
+                            <tr>
+                                <td>Besar</td>
+                                <td>&gt; 50%</td>
+                                <td>Jarak dari apeks paru ke kubah thoraks &gt; 6 cm atau kolaps paru total</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h4>Pneumothorax Tension</h4>
+                <p>Tension pneumothorax merupakan keadaan darurat yang dapat mengancam nyawa. Temuan radiologis tension pneumothorax meliputi:</p>
+                <ul class="content-list">
+                    <li>Deviasi mediastinum ke sisi kontralateral (sisi yang berlawanan)</li>
+                    <li>Herniasi paru ke sisi kontralateral</li>
+                    <li>Inversi diafragma ipsilateral</li>
+                    <li>Deviasi trakea ke sisi kontralateral</li>
+                    <li>Pelebaran ruang interkostal</li>
+                </ul>
+                
+                <div class="warning-box">
+                    <div class="warning-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    <div class="warning-content">
+                        <h5>Penting!</h5>
+                        <p>Diagnosis tension pneumothorax adalah diagnosis klinis, bukan radiologis. Jangan menunda tatalaksana pada pasien dengan gejala klinis tension pneumothorax untuk menunggu konfirmasi radiologis.</p>
+                    </div>
+                </div>
+                
+                <h4>Temuan Radiologis Lain</h4>
+                <p>Beberapa temuan radiologis lain yang mungkin menyertai pneumothorax:</p>
+                <ul class="content-list">
+                    <li><strong>Pneumomediastinum:</strong> Adanya udara di mediastinum, dapat menyertai pneumothorax terutama pada kasus trauma atau barotrauma.</li>
+                    <li><strong>Efusi pleura:</strong> Pada kasus hemopneumothorax, dapat terlihat level cairan pada area pneumothorax.</li>
+                    <li><strong>Emfisema subkutan:</strong> Udara pada jaringan subkutan, dapat terlihat sebagai radiolusensi pada jaringan lunak dinding toraks.</li>
+                </ul>
+                
+                <div class="quiz-block">
+                    <h4>Mini Quiz</h4>
+                    <div class="quiz-question">
+                        <p>Apa tanda radiologis yang paling spesifik untuk tension pneumothorax?</p>
+                        <div class="quiz-options">
+                            <label class="option">
+                                <input type="radio" name="question1" value="a">
+                                <span>Garis pleura visceral</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="question1" value="b">
+                                <span>Deviasi mediastinum ke sisi kontralateral</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="question1" value="c">
+                                <span>Tidak adanya vascular markings</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="question1" value="d">
+                                <span>Hiperlusensi pada sisi ipsilateral</span>
+                            </label>
+                        </div>
+                        <button class="check-answer-btn">Periksa Jawaban</button>
+                        <div class="answer-feedback" style="display: none;">
+                            <p>Jawaban benar: <strong>B. Deviasi mediastinum ke sisi kontralateral</strong></p>
+                            <p>Deviasi mediastinum ke sisi kontralateral merupakan tanda radiologis yang paling spesifik untuk tension pneumothorax. Hal ini menunjukkan adanya tekanan positif dalam rongga pleura yang cukup untuk menggeser mediastinum.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mark as Complete Section -->
+            <div class="completion-section">
+                <p>Apakah Anda telah selesai mempelajari materi ini?</p>
+                <button id="mark-complete-btn" class="mark-complete-btn">
+                    <i class="fas fa-check"></i> Tandai Selesai
+                </button>
+            </div>
+            
+            <!-- Learning Navigation (Bottom) -->
+            <div class="learning-navigation bottom">
+                <a href="learning.html?id=pneumothorax&topic=clinical-presentation" class="nav-prev">
+                    <i class="fas fa-chevron-left"></i> 
+                    <span>Previous: Clinical Presentation</span>
+                </a>
+                <a href="learning.html?id=pneumothorax&topic=management" class="nav-next">
+                    <span>Next: Management</span>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="../img/cropped-Simbol-Logo-Garis.png" alt="GamaRad Logo" class="footer-logo-img">
+                <div class="footer-logo-text">
+                    <h3>GamaRad S.O.S</h3>
+                    <p>Sistem Onboarding Siaga Radiologi</p>
+                </div>
+            </div>
+            <div class="footer-info">
+                <p>Fakultas Kedokteran, Kesehatan Masyarakat dan Keperawatan</p>
+                <p>Universitas Gadjah Mada</p>
+                <p>&copy; 2025 GamaRad S.O.S</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/app.js"></script>
+    <script src="../js/learning.js"></script>
+</body>
+</html>

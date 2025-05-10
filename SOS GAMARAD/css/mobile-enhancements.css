@@ -1,0 +1,359 @@
+/* 
+ * GamaRad S.O.S - Mobile UI Enhancements
+ * Memoles UI/UX untuk pengalaman mobile yang lebih baik
+ */
+
+/* ===== GLOBAL MOBILE ENHANCEMENTS ===== */
+
+/* Prevent text size adjustment after orientation changes in iOS */
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Better tap target sizing for mobile */
+button, 
+a, 
+input, 
+select, 
+textarea {
+    min-height: 44px; /* Apple recommends at least 44px for tap targets */
+    min-width: 44px;
+}
+
+/* Improved touch scrolling */
+body {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Remove blue highlight for touched links in mobile */
+a, button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Sticky header behavior */
+.app-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Optimized mobile typography */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
+    
+    p, li {
+        font-size: 0.95rem;
+    }
+    
+    .app-title {
+        font-size: 1.6rem !important;
+    }
+}
+
+/* ===== ENHANCED MOBILE NAVIGATION ===== */
+
+/* Bottom navigation bar for mobile */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-dark);
+    border-top: 1px solid var(--border-color);
+    padding: 10px 0 5px;
+    z-index: 99;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-nav-list {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.mobile-nav-link {
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+}
+
+.mobile-nav-link i {
+    font-size: 1.3rem;
+    margin-bottom: 3px;
+}
+
+.mobile-nav-link.active {
+    color: var(--primary-color);
+}
+
+/* Show bottom nav in mobile view */
+@media (max-width: 768px) {
+    .mobile-nav {
+        display: block !important;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+    }
+    /* Add padding to prevent content from being hidden behind bottom nav */
+    .main-content {
+        padding-bottom: 70px !important;
+    }
+    /* Hide burger menu when bottom nav is active */
+    .menu-toggle {
+        display: none !important;
+    }
+    /* Hide top navigation when bottom nav is active */
+    .main-nav {
+        display: none !important;
+    }
+}
+
+/* Fallback: force show mobile nav if hidden by other CSS */
+.mobile-nav {
+    display: none;
+}
+@media (max-width: 768px) {
+    .mobile-nav {
+        display: block !important;
+    }
+}
+
+
+/* ===== ENHANCED MOBILE COMPONENTS ===== */
+
+/* Better card layouts for mobile */
+@media (max-width: 768px) {
+    .category-grid,
+    .case-grid,
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .case-card,
+    .category-card {
+        margin-bottom: 15px;
+    }
+    
+    .card {
+        padding: 15px;
+    }
+}
+
+/* Improved form elements for touch */
+input, 
+select, 
+textarea {
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+/* Enhanced buttons for touch */
+.btn, 
+button,
+.category-button,
+.case-button {
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Slide to go back gesture indicator */
+.back-gesture-hint {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 60px;
+    background: linear-gradient(to right, var(--primary-color) 0%, transparent 100%);
+    opacity: 0.3;
+    border-radius: 0 3px 3px 0;
+    pointer-events: none;
+    z-index: 99;
+}
+
+/* ===== SWIPER ENHANCEMENTS ===== */
+
+/* Make swiper more touch-friendly */
+.swiper-slide {
+    touch-action: pan-y;
+}
+
+.swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    margin: 0 6px;
+}
+
+/* Skip button position fix for mobile */
+@media (max-width: 480px) {
+    .skip-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        margin: 0;
+        z-index: 10;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 30px;
+        padding: 5px 12px;
+    }
+}
+
+/* Better loading indicators */
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+}
+
+/* Loading bar animation enhanced */
+.loading-progress {
+    background: linear-gradient(90deg, var(--primary-dark), var(--primary-color), var(--primary-light));
+    background-size: 200% 100%;
+    animation: gradientShift 2s ease infinite, progress 3s ease-out forwards;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ===== MOBILE-SPECIFIC FEATURES ===== */
+
+/* Pull to refresh indicator */
+.pull-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-dark);
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+    z-index: 90;
+}
+
+.pull-indicator.active {
+    transform: translateY(0);
+}
+
+.pull-spinner {
+    width: 24px;
+    height: 24px;
+    border: 2px solid transparent;
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Toast notifications positioned better for mobile */
+.toast {
+    position: fixed;
+    bottom: 80px; /* Above bottom navigation */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    padding: 12px 20px;
+    border-radius: 30px;
+    background-color: var(--bg-light);
+    color: var(--text-color);
+    font-size: 0.9rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Table improvements for mobile */
+@media (max-width: 768px) {
+    .table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .content-table {
+        min-width: 600px;
+    }
+    
+    .content-table th,
+    .content-table td {
+        padding: 10px;
+    }
+}
+
+/* ===== VISUAL FEEDBACK ===== */
+
+/* Improved touch feedback */
+.touch-feedback {
+    position: relative;
+    overflow: hidden;
+}
+
+.touch-feedback::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.2) 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform 0.5s, opacity 1s;
+}
+
+.touch-feedback:active::after {
+    transform: scale(0, 0);
+    opacity: 0.3;
+    transition: 0s;
+}
+
+/* ===== IMAGE OPTIMIZATIONS ===== */
+
+/* Better image handling for mobile */
+img {
+    max-width: 100%;
+    height: auto;
+}

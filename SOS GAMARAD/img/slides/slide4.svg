@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200" width="800" height="1200">
+  <!-- Background Gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fb5607" />
+      <stop offset="100%" stop-color="#1a202c" />
+    </linearGradient>
+    <radialGradient id="glowGradient" cx="50%" cy="30%" r="70%" fx="50%" fy="30%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="1200" fill="url(#bgGradient)" />
+  <ellipse cx="400" cy="300" rx="500" ry="300" fill="url(#glowGradient)" />
+  
+  <!-- Patient and Doctor Silhouettes (Abstract) -->
+  <g transform="translate(400, 500)">
+    <!-- Patient -->
+    <g transform="translate(-100, 0)">
+      <circle cx="0" cy="-60" r="30" fill="#ffffff" opacity="0.6" />
+      <path d="M-20,-30 C-40,0 -30,50 -30,80 C-30,90 -20,90 -10,90 L10,90 C20,90 30,90 30,80 C30,50 40,0 20,-30"
+            fill="#ffffff" opacity="0.4" />
+      <!-- Patient Arms -->
+      <line x1="-30" y1="0" x2="-70" y2="20" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity="0.4" />
+      <line x1="30" y1="0" x2="70" y2="20" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity="0.4" />
+      <!-- Patient Legs -->
+      <line x1="-15" y1="90" x2="-25" y2="150" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity="0.4" />
+      <line x1="15" y1="90" x2="25" y2="150" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity="0.4" />
+    </g>
+    
+    <!-- Doctor/Caregiver -->
+    <g transform="translate(100, 0)">
+      <circle cx="0" cy="-60" r="30" fill="#ffffff" opacity="0.6" />
+      <path d="M-20,-30 C-40,0 -30,50 -30,80 C-30,90 -20,90 -10,90 L10,90 C20,90 30,90 30,80 C30,50 40,0 20,-30"
+            fill="#ffffff" opacity="0.4" />
+      <!-- Stethoscope-like element -->
+      <path d="M-20,-10 C-40,20 -60,30 -80,30" stroke="#ffffff" stroke-width="4" fill="none" opacity="0.6" />
+      <circle cx="-90" cy="30" r="10" fill="#ffffff" opacity="0.6" />
+      <!-- Doctor Arms -->
+      <line x1="30" y1="0" x2="70" y2="20" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity="0.4" />
+      <!-- Doctor Legs -->
+      <line x1="-15" y1="90" x2="-25" y2="150" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity="0.4" />
+      <line x1="15" y1="90" x2="25" y2="150" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity="0.4" />
+    </g>
+    
+    <!-- Heart Symbol Between Them -->
+    <path d="M0,-15 L-10,-25 C-20,-35 -20,-50 -10,-60 C0,-70 10,-60 10,-50 C10,-60 20,-70 30,-60 C40,-50 40,-35 30,-25 Z"
+          fill="#ffffff" opacity="0.7" transform="translate(0, -40) scale(1.5)" />
+  </g>
+  
+  <!-- Medical Chart and Stats -->
+  <g transform="translate(400, 250)">
+    <!-- Patient Vitals Monitor -->
+    <rect x="-150" y="-100" width="300" height="200" rx="10" fill="#ffffff" opacity="0.1" />
+    
+    <!-- ECG Line -->
+    <polyline points="-140,-20 -130,-20 -120,-20 -110,-50 -100,0 -90,-20 -80,-20 -70,-20 -60,-50 -50,0 -40,-20 -30,-20 -20,-20 -10,-50 0,0 10,-20 20,-20 30,-20 40,-50 50,0 60,-20 70,-20 80,-20 90,-50 100,0 110,-20 120,-20 130,-20 140,-20"
+             stroke="#fb5607" stroke-width="2" fill="none" opacity="0.8" />
+    
+    <!-- Vital Stats Displays -->
+    <g transform="translate(-100, -60)">
+      <rect x="-30" y="-20" width="60" height="40" rx="5" fill="#ffffff" opacity="0.2" />
+      <text x="0" y="0" text-anchor="middle" font-family="Arial" font-size="12" fill="#ffffff" opacity="0.9">HR: 72</text>
+    </g>
+    
+    <g transform="translate(0, -60)">
+      <rect x="-30" y="-20" width="60" height="40" rx="5" fill="#ffffff" opacity="0.2" />
+      <text x="0" y="0" text-anchor="middle" font-family="Arial" font-size="12" fill="#ffffff" opacity="0.9">BP: 120/80</text>
+    </g>
+    
+    <g transform="translate(100, -60)">
+      <rect x="-30" y="-20" width="60" height="40" rx="5" fill="#ffffff" opacity="0.2" />
+      <text x="0" y="0" text-anchor="middle" font-family="Arial" font-size="12" fill="#ffffff" opacity="0.9">O₂: 98%</text>
+    </g>
+    
+    <!-- Health Metrics Showing Improvement -->
+    <g transform="translate(0, 50)">
+      <line x1="-120" y1="0" x2="120" y2="0" stroke="#ffffff" stroke-width="1" opacity="0.5" />
+      <polyline points="-120,20 -80,10 -40,0 0,-10 40,-20 80,-30 120,-40"
+               stroke="#ffffff" stroke-width="2" fill="none" opacity="0.8" />
+      <circle cx="-120" cy="20" r="3" fill="#ffffff" opacity="0.8" />
+      <circle cx="-80" cy="10" r="3" fill="#ffffff" opacity="0.8" />
+      <circle cx="-40" cy="0" r="3" fill="#ffffff" opacity="0.8" />
+      <circle cx="0" cy="-10" r="3" fill="#ffffff" opacity="0.8" />
+      <circle cx="40" cy="-20" r="3" fill="#ffffff" opacity="0.8" />
+      <circle cx="80" cy="-30" r="3" fill="#ffffff" opacity="0.8" />
+      <circle cx="120" cy="-40" r="3" fill="#ffffff" opacity="0.8" />
+      
+      <!-- Trend line label -->
+      <text x="0" y="30" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffffff" opacity="0.7">PATIENT IMPROVEMENT</text>
+    </g>
+  </g>
+  
+  <!-- Medical Quality Elements -->
+  <g>
+    <!-- Quality of Care Symbol 1: Pill/Medication -->
+    <g transform="translate(200, 800)">
+      <rect x="-30" y="-15" width="60" height="30" rx="15" fill="#ffffff" opacity="0.6" />
+      <line x1="0" y1="-15" x2="0" y2="15" stroke="#fb5607" stroke-width="2" opacity="0.7" />
+      
+      <!-- Radiating Lines (Quality Indicator) -->
+      <g opacity="0.4">
+        <line x1="-50" y1="0" x2="-40" y2="0" stroke="#ffffff" stroke-width="2" />
+        <line x1="40" y1="0" x2="50" y2="0" stroke="#ffffff" stroke-width="2" />
+        <line x1="-35" y1="-35" x2="-28" y2="-28" stroke="#ffffff" stroke-width="2" />
+        <line x1="28" y1="-28" x2="35" y2="-35" stroke="#ffffff" stroke-width="2" />
+        <line x1="-35" y1="35" x2="-28" y2="28" stroke="#ffffff" stroke-width="2" />
+        <line x1="28" y1="28" x2="35" y2="35" stroke="#ffffff" stroke-width="2" />
+        <line x1="0" y1="-50" x2="0" y2="-40" stroke="#ffffff" stroke-width="2" />
+        <line x1="0" y1="40" x2="0" y2="50" stroke="#ffffff" stroke-width="2" />
+      </g>
+    </g>
+    
+    <!-- Quality of Care Symbol 2: Shield (Protection) -->
+    <g transform="translate(400, 800)">
+      <path d="M0,-50 L40,-30 C40,20 30,40 0,50 C-30,40 -40,20 -40,-30 Z" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.6" />
+      <path d="M0,-30 L20,-20 C20,10 15,20 0,30 C-15,20 -20,10 -20,-20 Z" fill="#ffffff" opacity="0.3" />
+      <path d="M0,-10 L0,10 M-10,0 L10,0" stroke="#ffffff" stroke-width="3" opacity="0.7" />
+    </g>
+    
+    <!-- Quality of Care Symbol 3: Star (Excellence) -->
+    <g transform="translate(600, 800)">
+      <path d="M0,-50 L10,-15 L47,-15 L18,5 L29,40 L0,20 L-29,40 L-18,5 L-47,-15 L-10,-15 Z" 
+            fill="none" stroke="#ffffff" stroke-width="2" opacity="0.6" />
+      <circle cx="0" cy="0" r="15" fill="#ffffff" opacity="0.4" />
+      <text x="0" y="5" text-anchor="middle" font-family="Arial" font-size="15" fill="#ffffff" opacity="0.9">+</text>
+    </g>
+  </g>
+  
+  <!-- Grid Pattern -->
+  <g stroke="#ffffff" stroke-width="0.5" opacity="0.07">
+    <g id="grid-vertical">
+      <line x1="100" y1="0" x2="100" y2="1200" />
+      <line x1="200" y1="0" x2="200" y2="1200" />
+      <line x1="300" y1="0" x2="300" y2="1200" />
+      <line x1="400" y1="0" x2="400" y2="1200" />
+      <line x1="500" y1="0" x2="500" y2="1200" />
+      <line x1="600" y1="0" x2="600" y2="1200" />
+      <line x1="700" y1="0" x2="700" y2="1200" />
+    </g>
+    <g id="grid-horizontal">
+      <line x1="0" y1="100" x2="800" y2="100" />
+      <line x1="0" y1="200" x2="800" y2="200" />
+      <line x1="0" y1="300" x2="800" y2="300" />
+      <line x1="0" y1="400" x2="800" y2="400" />
+      <line x1="0" y1="500" x2="800" y2="500" />
+      <line x1="0" y1="600" x2="800" y2="600" />
+      <line x1="0" y1="700" x2="800" y2="700" />
+      <line x1="0" y1="800" x2="800" y2="800" />
+      <line x1="0" y1="900" x2="800" y2="900" />
+      <line x1="0" y1="1000" x2="800" y2="1000" />
+      <line x1="0" y1="1100" x2="800" y2="1100" />
+    </g>
+  </g>
+</svg>

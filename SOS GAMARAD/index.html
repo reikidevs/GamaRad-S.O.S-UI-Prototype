@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="0;url=pages/splash.html">
+    <title>GamaRad S.O.S - Redirecting</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1D1D1D;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            overflow: hidden;
+        }
+        .loader {
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            border-top: 4px solid #FFB700;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(255, 183, 0, 0.3);
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="loader"></div>
+        <h1>GamaRad S.O.S</h1>
+        <p>Redirecting to application...</p>
+    </div>
+    <script>
+        // Redirect to splash screen automatically
+        window.location.href = 'pages/splash.html';
+    </script>
+</body>
+</html>
