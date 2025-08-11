@@ -16,7 +16,7 @@ function togglePassword() {
     }
 }
 
-// Demo login function
+// Enhanced demo login function
 function loginDemo(role) {
     const demoCredentials = {
         admin: {
@@ -40,33 +40,91 @@ function loginDemo(role) {
     };
     
     const credentials = demoCredentials[role];
-    
-    // Fill form with demo credentials
-    document.getElementById('email').value = credentials.email;
-    document.getElementById('password').value = credentials.password;
-    
-    // Add visual feedback
-    const demoButtons = document.querySelectorAll('.demo-btn');
-    demoButtons.forEach(btn => btn.style.opacity = '0.5');
-    
     const clickedBtn = event.target.closest('.demo-btn');
-    clickedBtn.style.opacity = '1';
-    clickedBtn.style.transform = 'scale(0.95)';
     
-    // Simulate login process
-    setTimeout(() => {
-        // Store user data in localStorage
-        localStorage.setItem('currentUser', JSON.stringify({
-            role: role,
-            name: credentials.name,
-            email: credentials.email,
-            loginTime: new Date().toISOString()
-        }));
+    // Remove active class from all buttons
+    document.querySelectorAll('.demo-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    // Add active class to clicked button
+    clickedBtn.classList.add('active');
+    
+    // Show credentials info
+    const credentialsDiv = document.getElementById('demoCredentials');
+    credentialsDiv.style.display = 'block';
+    credentialsDiv.querySelector('span').textContent = `Login sebagai ${credentials.name}...`;
+    
+    // Fill form with demo credentials with animation
+    const emailField = document.getElementById('email');
+    const passwordField = document.getElementById('password');
+    
+    // Clear fields first
+    emailField.value = '';
+    passwordField.value = '';
+    
+    // Type effect for email
+    typeText(emailField, credentials.email, 50, () => {
+        // Trigger validation
+        emailField.dispatchEvent(new Event('input'));
         
-        // Redirect to appropriate dashboard
-        window.location.href = credentials.dashboard;
-    }, 1000);
+        // Type effect for password
+        setTimeout(() => {
+            typeText(passwordField, credentials.password, 50, () => {
+                // Trigger validation
+                passwordField.dispatchEvent(new Event('input'));
+                
+                // Show success notification
+                showNotification(`Demo ${credentials.name} siap! Klik "Masuk" untuk melanjutkan.`, 'success');
+            });
+        }, 500);
+    });
 }
+
+// Type text effect
+function typeText(element, text, speed, callback) {
+    let i = 0;
+    element.focus();
+    
+    function typeChar() {
+        if (i < text.length) {
+            element.value += text.charAt(i);
+            i++;
+            setTimeout(typeChar, speed);
+        } else if (callback) {
+            callback();
+        }
+    }
+    
+    typeChar();
+}
+
+// Enhanced demo button interactions
+document.addEventListener('DOMContentLoaded', () => {
+    const demoButtons = document.querySelectorAll('.demo-btn');
+    
+    demoButtons.forEach(button => {
+        button.addEventListener('mouseenter', () => {
+            const role = button.dataset.role;
+            const roleNames = {
+                admin: 'Administrator',
+                teacher: 'Guru',
+                student: 'Siswa'
+            };
+            
+            // Show tooltip or preview
+            button.setAttribute('title', `Coba demo sebagai ${roleNames[role]}`);
+        });
+        
+        button.addEventListener('click', () => {
+            // Add click animation
+            button.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                button.style.transform = '';
+            }, 150);
+        });
+    });
+});
 
 // Form validation
 function validateForm(formData) {
@@ -148,44 +206,128 @@ function clearValidation(fieldName) {
     field.classList.remove('input-error', 'input-success');
 }
 
-// Real-time validation
+// Enhanced real-time validation
 document.addEventListener('DOMContentLoaded', () => {
     const emailField = document.getElementById('email');
     const passwordField = document.getElementById('password');
     
     if (emailField) {
-        emailField.addEventListener('blur', () => {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (emailField.value && emailRegex.test(emailField.value)) {
-                showSuccess('email');
-            } else if (emailField.value) {
-                showError('email', 'Format email tidak valid');
-            }
-        });
+        const emailGroup = emailField.closest('.input-group');
+        const emailValidation = emailGroup.querySelector('.input-validation');
+        const emailMessage = emailField.closest('.form-group').querySelector('.validation-message');
         
         emailField.addEventListener('input', () => {
-            if (emailField.classList.contains('input-error')) {
-                clearValidation('email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const value = emailField.value.trim();
+            
+            if (value === '') {
+                emailGroup.classList.remove('valid', 'invalid');
+                emailMessage.classList.remove('show', 'error', 'success');
+            } else if (emailRegex.test(value)) {
+                emailGroup.classList.add('valid');
+                emailGroup.classList.remove('invalid');
+                emailMessage.textContent = 'Email valid';
+                emailMessage.classList.add('show', 'success');
+                emailMessage.classList.remove('error');
+            } else {
+                emailGroup.classList.add('invalid');
+                emailGroup.classList.remove('valid');
+                emailMessage.textContent = 'Format email tidak valid';
+                emailMessage.classList.add('show', 'error');
+                emailMessage.classList.remove('success');
             }
         });
     }
     
     if (passwordField) {
-        passwordField.addEventListener('blur', () => {
-            if (passwordField.value && passwordField.value.length >= 6) {
-                showSuccess('password');
-            } else if (passwordField.value) {
-                showError('password', 'Password minimal 6 karakter');
-            }
-        });
+        const passwordGroup = passwordField.closest('.input-group');
+        const passwordValidation = passwordGroup.querySelector('.input-validation');
+        const passwordMessage = passwordField.closest('.form-group').querySelector('.validation-message');
+        const strengthIndicator = passwordField.closest('.form-group').querySelector('.password-strength');
+        const strengthFill = strengthIndicator.querySelector('.strength-fill');
+        const strengthText = strengthIndicator.querySelector('.strength-text');
         
         passwordField.addEventListener('input', () => {
-            if (passwordField.classList.contains('input-error')) {
-                clearValidation('password');
+            const value = passwordField.value;
+            
+            if (value === '') {
+                passwordGroup.classList.remove('valid', 'invalid');
+                passwordMessage.classList.remove('show');
+                strengthIndicator.classList.remove('show');
+                return;
+            }
+            
+            // Show strength indicator
+            strengthIndicator.classList.add('show');
+            
+            // Calculate password strength
+            const strength = calculatePasswordStrength(value);
+            
+            // Update strength bar
+            strengthFill.className = `strength-fill ${strength.level}`;
+            strengthText.textContent = strength.text;
+            
+            // Update validation
+            if (strength.score >= 2) {
+                passwordGroup.classList.add('valid');
+                passwordGroup.classList.remove('invalid');
+                passwordMessage.textContent = 'Password cukup kuat';
+                passwordMessage.classList.add('show', 'success');
+                passwordMessage.classList.remove('error');
+            } else {
+                passwordGroup.classList.add('invalid');
+                passwordGroup.classList.remove('valid');
+                passwordMessage.textContent = strength.feedback;
+                passwordMessage.classList.add('show', 'error');
+                passwordMessage.classList.remove('success');
             }
         });
     }
 });
+
+// Password strength calculator
+function calculatePasswordStrength(password) {
+    let score = 0;
+    let feedback = '';
+    
+    // Length check
+    if (password.length >= 8) score += 1;
+    else feedback = 'Password minimal 8 karakter';
+    
+    // Lowercase check
+    if (/[a-z]/.test(password)) score += 1;
+    else if (feedback === '') feedback = 'Tambahkan huruf kecil';
+    
+    // Uppercase check
+    if (/[A-Z]/.test(password)) score += 1;
+    else if (feedback === '') feedback = 'Tambahkan huruf besar';
+    
+    // Number check
+    if (/\d/.test(password)) score += 1;
+    else if (feedback === '') feedback = 'Tambahkan angka';
+    
+    // Special character check
+    if (/[!@#$%^&*(),.?":{}|<>]/.test(password)) score += 1;
+    else if (feedback === '') feedback = 'Tambahkan karakter khusus';
+    
+    // Determine strength level
+    let level, text;
+    if (score <= 1) {
+        level = 'weak';
+        text = 'Lemah';
+    } else if (score <= 2) {
+        level = 'fair';
+        text = 'Cukup';
+    } else if (score <= 3) {
+        level = 'good';
+        text = 'Baik';
+    } else {
+        level = 'strong';
+        text = 'Kuat';
+    }
+    
+    return { score, level, text, feedback };
+}
 
 // Login form submission
 document.addEventListener('DOMContentLoaded', () => {
