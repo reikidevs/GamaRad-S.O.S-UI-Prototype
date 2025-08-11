@@ -32,6 +32,9 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDNMMSA5TDEyIDE1TDIzIDlMMTIgM1pNNSAxMy4xOFYxNy4xOEwxMiAyMUwxOSAxNy4xOFYxMy4xOEwxMiAxN0w1IDEzLjE4WiIgZmlsbD0iIzRmNDZlNSIvPgo8L3N2Zz4=">
     
+    <!-- Preload critical images -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=500&h=400&fit=crop&crop=center">
+    
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -71,8 +74,13 @@
                 </div>
             </div>
             <div class="hero-image">
-                <div class="hero-illustration">
-                    <i class="fas fa-school"></i>
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=500&h=400&fit=crop&crop=center" 
+                     alt="Siswa belajar di kelas modern" 
+                     class="hero-main-image"
+                     loading="eager"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="hero-fallback" style="display: none;">
+                    <i class="fas fa-graduation-cap"></i>
                 </div>
             </div>
         </div>
@@ -146,6 +154,72 @@
         </div>
     </section>
 
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Lingkungan Belajar yang Inspiratif</h2>
+                <p>Lihat bagaimana teknologi dan pendidikan berpadu menciptakan pengalaman belajar yang luar biasa</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                         alt="Siswa menggunakan teknologi dalam pembelajaran" 
+                         loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Teknologi dalam Pembelajaran</h3>
+                        <p>Integrasi teknologi modern untuk pengalaman belajar yang interaktif</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                         alt="Siswa belajar bersama dalam kelompok" 
+                         loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Pembelajaran Kolaboratif</h3>
+                        <p>Mendorong kerjasama dan diskusi antar siswa</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                         alt="Guru mengajar dengan antusias" 
+                         loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Pengajaran Berkualitas</h3>
+                        <p>Guru profesional dengan metode pengajaran terdepan</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1581726690015-c9861fa5057f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                         alt="Perpustakaan modern dengan fasilitas lengkap" 
+                         loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Fasilitas Modern</h3>
+                        <p>Perpustakaan dan ruang belajar dengan teknologi terkini</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                         alt="Siswa presentasi di depan kelas" 
+                         loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Pengembangan Kepercayaan Diri</h3>
+                        <p>Melatih kemampuan presentasi dan komunikasi siswa</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                         alt="Kegiatan ekstrakurikuler siswa" 
+                         loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Kegiatan Ekstrakurikuler</h3>
+                        <p>Mengembangkan bakat dan minat siswa di luar akademik</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
@@ -173,8 +247,99 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <div class="about-illustration">
-                        <i class="fas fa-laptop-code"></i>
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Tim kolaborasi dalam pendidikan" 
+                         class="about-main-image"
+                         loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Apa Kata Mereka Tentang Sakola Pintar</h2>
+                <p>Dengarkan pengalaman dari sekolah-sekolah yang telah menggunakan platform kami</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80" 
+                             alt="Kepala Sekolah" 
+                             loading="lazy">
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Sakola Pintar telah mengubah cara kami mengelola sekolah. Sistem yang terintegrasi membuat semua proses menjadi lebih efisien dan transparan."</p>
+                        <div class="testimonial-author">
+                            <h4>Dr. Ahmad Wijaya</h4>
+                            <span>Kepala Sekolah SMA Negeri 1</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-image">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616c9c0e8e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80" 
+                             alt="Guru" 
+                             loading="lazy">
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Platform LMS yang disediakan sangat membantu dalam pembelajaran online. Siswa menjadi lebih aktif dan engaged dalam proses belajar."</p>
+                        <div class="testimonial-author">
+                            <h4>Sari Indrawati, S.Pd</h4>
+                            <span>Guru Matematika</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-image">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80" 
+                             alt="Orang Tua" 
+                             loading="lazy">
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Sebagai orang tua, saya sangat terbantu dengan sistem pembayaran dan monitoring yang transparan. Semua informasi mudah diakses."</p>
+                        <div class="testimonial-author">
+                            <h4>Budi Santoso</h4>
+                            <span>Orang Tua Siswa</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="statistics">
+        <div class="statistics-bg">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
+                 alt="Sekolah Modern" 
+                 class="statistics-background"
+                 loading="lazy">
+        </div>
+        <div class="statistics-overlay">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Dipercaya oleh Ribuan Sekolah</h2>
+                    <p>Bergabunglah dengan komunitas pendidikan yang terus berkembang</p>
+                </div>
+                <div class="statistics-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">1,500+</div>
+                        <div class="stat-label">Sekolah Terdaftar</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">250,000+</div>
+                        <div class="stat-label">Siswa Aktif</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15,000+</div>
+                        <div class="stat-label">Guru & Staff</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Tingkat Kepuasan</div>
                     </div>
                 </div>
             </div>

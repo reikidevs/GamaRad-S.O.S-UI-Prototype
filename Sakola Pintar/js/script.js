@@ -263,10 +263,129 @@ backToTopBtn.addEventListener('click', () => {
     });
 });
 
+// Image loading and error handling
+document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll('img');
+    
+    images.forEach(img => {
+        // Add loading placeholder
+        img.style.backgroundColor = '#f1f5f9';
+        
+        // Handle successful load
+        img.addEventListener('load', () => {
+            img.style.opacity = '1';
+            img.classList.add('loaded');
+        });
+        
+        // Handle error
+        img.addEventListener('error', () => {
+            console.warn(`Failed to load image: ${img.src}`);
+            img.style.backgroundColor = '#e2e8f0';
+            img.style.color = '#64748b';
+            img.style.display = 'flex';
+            img.style.alignItems = 'center';
+            img.style.justifyContent = 'center';
+            img.style.fontSize = '2rem';
+            img.innerHTML = '📷';
+            img.title = 'Gambar tidak dapat dimuat';
+        });
+        
+        // Set initial opacity for lazy loaded images
+        if (img.loading === 'lazy') {
+            img.style.opacity = '0';
+            img.style.transition = 'opacity 0.3s ease';
+        }
+    });
+});
+
+// Statistics counter animation
+document.addEventListener('DOMContentLoaded', () => {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = entry.target;
+                const finalValue = target.textContent;
+                const numericValue = parseInt(finalValue.replace(/[^\d]/g, ''));
+                
+                if (numericValue) {
+                    animateCounter(target, numericValue, finalValue, 2000);
+                    statsObserver.unobserve(target);
+                }
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    statNumbers.forEach(stat => {
+        statsObserver.observe(stat);
+    });
+});
+
+// Enhanced counter animation for statistics
+function animateCounter(element, target, originalText, duration = 2000) {
+    let start = 0;
+    const increment = target / (duration / 16);
+    const suffix = originalText.replace(/[\d,]/g, '');
+    
+    const timer = setInterval(() => {
+        start += increment;
+        const currentValue = Math.floor(start);
+        
+        if (currentValue >= 1000) {
+            element.textContent = (currentValue / 1000).toFixed(0) + 'K' + suffix;
+        } else {
+            element.textContent = currentValue.toLocaleString() + suffix;
+        }
+        
+        if (start >= target) {
+            element.textContent = originalText;
+            clearInterval(timer);
+        }
+    }, 16);
+}
+
+// Gallery image hover effects
+document.addEventListener('DOMContentLoaded', () => {
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    galleryItems.forEach(item => {
+        const img = item.querySelector('img');
+        const overlay = item.querySelector('.gallery-overlay');
+        
+        item.addEventListener('mouseenter', () => {
+            if (img) img.style.transform = 'scale(1.05)';
+            if (overlay) overlay.style.transform = 'translateY(0)';
+        });
+        
+        item.addEventListener('mouseleave', () => {
+            if (img) img.style.transform = 'scale(1)';
+            if (overlay) overlay.style.transform = 'translateY(100%)';
+        });
+    });
+});
+
+// Preload critical images
+function preloadImages() {
+    const criticalImages = [
+        'https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+        'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+    ];
+    
+    criticalImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+}
+
+// Initialize preloading
+document.addEventListener('DOMContentLoaded', preloadImages);
+
 // Console welcome message
 console.log(`
 🎓 Selamat datang di Sakola Pintar!
 📚 Platform Manajemen Sekolah Modern
 🚀 Versi: 1.0.0
 💻 Dikembangkan dengan ❤️
+🖼️ Gambar dari Unsplash.com
 `);
