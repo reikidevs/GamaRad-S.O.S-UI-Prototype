@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Siswa - Sakola Pintar</title>
+    <!-- Critical CSS handled by external stylesheets -->
+    <!-- Flash prevention handled by base template -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/dashboard-flash-fix.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap">
+</head>
+<body class="dashboard-body">
+    <!-- Dashboard Preloader -->
+    <div class="dashboard-preloader">
+        <div class="preloader-content">
+            <div class="preloader-spinner"></div>
+            <div class="preloader-text">Memuat Dashboard...</div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Sakola Pintar</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li class="nav-item active">
+                    <a href="#dashboard" class="nav-link" data-page="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#schedule" class="nav-link" data-page="schedule">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Jadwal Kelas</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#subjects" class="nav-link" data-page="subjects">
+                        <i class="fas fa-book"></i>
+                        <span>Mata Pelajaran</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#assignments" class="nav-link" data-page="assignments">
+                        <i class="fas fa-tasks"></i>
+                        <span>Tugas</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#grades" class="nav-link" data-page="grades">
+                        <i class="fas fa-star"></i>
+                        <span>Nilai</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#attendance" class="nav-link" data-page="attendance">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Kehadiran</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#materials" class="nav-link" data-page="materials">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Materi</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#library" class="nav-link" data-page="library">
+                        <i class="fas fa-book-reader"></i>
+                        <span>Perpustakaan</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#payments" class="nav-link" data-page="payments">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Pembayaran</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#profile" class="nav-link" data-page="profile">
+                        <i class="fas fa-user"></i>
+                        <span>Profil</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <div class="user-details">
+                    <span class="user-name" id="userName">Ahmad Rizki</span>
+                    <span class="user-role">Siswa • Kelas XI-A</span>
+                </div>
+            </div>
+            <button class="logout-btn" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="page-title" id="pageTitle">Dashboard</h1>
+            </div>
+            <div class="header-right">
+                <div class="header-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Cari tugas, materi, jadwal...">
+                </div>
+                <div class="header-notifications">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                </div>
+                <div class="header-profile">
+                    <img src="https://via.placeholder.com/40x40/4f46e5/ffffff?text=AR" alt="Profile" class="profile-img">
+                </div>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <div class="page-content" id="pageContent">
+            <!-- Dashboard Content -->
+            <div class="content-page active" id="dashboard-content">
+                <!-- Welcome Section -->
+                <div class="welcome-section">
+                    <div class="welcome-content">
+                        <h2>Selamat Datang, Ahmad Rizki! 👋</h2>
+                        <p>Semangat belajar hari ini! Kamu memiliki 3 tugas yang perlu diselesaikan.</p>
+                    </div>
+                    <div class="welcome-stats">
+                        <div class="welcome-stat">
+                            <div class="stat-icon">
+                                <i class="fas fa-calendar-day"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-label">Hari ini</span>
+                                <span class="stat-value">4 Kelas</span>
+                            </div>
+                        </div>
+                        <div class="welcome-stat">
+                            <div class="stat-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-label">Tugas Pending</span>
+                                <span class="stat-value">3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>85.5</h3>
+                            <p>Rata-rata Nilai</p>
+                        </div>
+                        <div class="stat-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+2.3</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>96%</h3>
+                            <p>Kehadiran</p>
+                        </div>
+                        <div class="stat-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+1%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>12</h3>
+                            <p>Tugas Selesai</p>
+                        </div>
+                        <div class="stat-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+3</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>5</h3>
+                            <p>Peringkat Kelas</p>
+                        </div>
+                        <div class="stat-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Dashboard Grid -->
+                <div class="dashboard-grid">
+                    <!-- Today's Schedule -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Jadwal Hari Ini</h3>
+                            <span class="card-date">Senin, 25 November 2024</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="schedule-list">
+                                <div class="schedule-item current">
+                                    <div class="schedule-time">
+                                        <span class="time">08:00 - 09:30</span>
+                                        <span class="status">Sedang Berlangsung</span>
+                                    </div>
+                                    <div class="schedule-info">
+                                        <h4>Matematika</h4>
+                                        <p>Pak Budi • Ruang 201</p>
+                                        <span class="topic">Integral</span>
+                                    </div>
+                                    <div class="schedule-actions">
+                                        <button class="btn-icon" title="Join Kelas">
+                                            <i class="fas fa-video"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="schedule-item">
+                                    <div class="schedule-time">
+                                        <span class="time">10:00 - 11:30</span>
+                                        <span class="status">Akan Datang</span>
+                                    </div>
+                                    <div class="schedule-info">
+                                        <h4>Bahasa Indonesia</h4>
+                                        <p>Bu Sari • Ruang 202</p>
+                                        <span class="topic">Teks Argumentasi</span>
+                                    </div>
+                                    <div class="schedule-actions">
+                                        <button class="btn-icon" title="Lihat Detail">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="schedule-item">
+                                    <div class="schedule-time">
+                                        <span class="time">13:00 - 14:30</span>
+                                        <span class="status">Akan Datang</span>
+                                    </div>
+                                    <div class="schedule-info">
+                                        <h4>Fisika</h4>
+                                        <p>Pak Andi • Lab Fisika</p>
+                                        <span class="topic">Gelombang</span>
+                                    </div>
+                                    <div class="schedule-actions">
+                                        <button class="btn-icon" title="Lihat Detail">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pending Assignments -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Tugas Pending</h3>
+                            <span class="card-badge urgent">3</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="assignment-list">
+                                <div class="assignment-item urgent">
+                                    <div class="assignment-info">
+                                        <h4>Latihan Integral</h4>
+                                        <p>Matematika • Pak Budi</p>
+                                        <div class="assignment-meta">
+                                            <span class="deadline">Deadline: 26 Nov 2024</span>
+                                            <span class="time-left">1 hari lagi</span>
+                                        </div>
+                                    </div>
+                                    <div class="assignment-actions">
+                                        <button class="btn-small btn-primary">Kerjakan</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="assignment-item normal">
+                                    <div class="assignment-info">
+                                        <h4>Essay Teks Argumentasi</h4>
+                                        <p>Bahasa Indonesia • Bu Sari</p>
+                                        <div class="assignment-meta">
+                                            <span class="deadline">Deadline: 28 Nov 2024</span>
+                                            <span class="time-left">3 hari lagi</span>
+                                        </div>
+                                    </div>
+                                    <div class="assignment-actions">
+                                        <button class="btn-small btn-primary">Kerjakan</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="assignment-item normal">
+                                    <div class="assignment-info">
+                                        <h4>Laporan Praktikum Gelombang</h4>
+                                        <p>Fisika • Pak Andi</p>
+                                        <div class="assignment-meta">
+                                            <span class="deadline">Deadline: 30 Nov 2024</span>
+                                            <span class="time-left">5 hari lagi</span>
+                                        </div>
+                                    </div>
+                                    <div class="assignment-actions">
+                                        <button class="btn-small btn-primary">Kerjakan</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Grades -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Nilai Terbaru</h3>
+                            <button class="card-action">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <div class="grades-list">
+                                <div class="grade-item">
+                                    <div class="grade-info">
+                                        <h4>Quiz Trigonometri</h4>
+                                        <p>Matematika • 20 Nov 2024</p>
+                                    </div>
+                                    <div class="grade-score excellent">
+                                        <span class="score">92</span>
+                                        <span class="grade">A</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="grade-item">
+                                    <div class="grade-info">
+                                        <h4>UTS Bahasa Indonesia</h4>
+                                        <p>Bahasa Indonesia • 18 Nov 2024</p>
+                                    </div>
+                                    <div class="grade-score good">
+                                        <span class="score">85</span>
+                                        <span class="grade">B+</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="grade-item">
+                                    <div class="grade-info">
+                                        <h4>Praktikum Fisika</h4>
+                                        <p>Fisika • 15 Nov 2024</p>
+                                    </div>
+                                    <div class="grade-score good">
+                                        <span class="score">88</span>
+                                        <span class="grade">B+</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Announcements -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Pengumuman</h3>
+                            <button class="card-action">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <div class="announcement-list">
+                                <div class="announcement-item">
+                                    <div class="announcement-icon">
+                                        <i class="fas fa-bullhorn"></i>
+                                    </div>
+                                    <div class="announcement-info">
+                                        <h4>Libur Nasional</h4>
+                                        <p>Sekolah libur pada tanggal 28 November 2024 dalam rangka Hari Guru Nasional.</p>
+                                        <span class="announcement-time">2 jam yang lalu</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="announcement-item">
+                                    <div class="announcement-icon">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                    <div class="announcement-info">
+                                        <h4>Jadwal UAS</h4>
+                                        <p>Ujian Akhir Semester akan dimulai pada tanggal 5 Desember 2024. Silakan persiapkan diri dengan baik.</p>
+                                        <span class="announcement-time">1 hari yang lalu</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="announcement-item">
+                                    <div class="announcement-icon">
+                                        <i class="fas fa-trophy"></i>
+                                    </div>
+                                    <div class="announcement-info">
+                                        <h4>Lomba Karya Tulis</h4>
+                                        <p>Pendaftaran lomba karya tulis ilmiah tingkat sekolah dibuka hingga 30 November 2024.</p>
+                                        <span class="announcement-time">2 hari yang lalu</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Study Progress -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Progress Belajar</h3>
+                            <select class="card-filter">
+                                <option>Semester Ini</option>
+                                <option>Bulan Ini</option>
+                                <option>Minggu Ini</option>
+                            </select>
+                        </div>
+                        <div class="card-content">
+                            <div class="progress-list">
+                                <div class="progress-item">
+                                    <div class="subject-info">
+                                        <h4>Matematika</h4>
+                                        <p>15/20 materi selesai</p>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 75%"></div>
+                                    </div>
+                                    <span class="progress-percent">75%</span>
+                                </div>
+                                
+                                <div class="progress-item">
+                                    <div class="subject-info">
+                                        <h4>Bahasa Indonesia</h4>
+                                        <p>12/16 materi selesai</p>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 75%"></div>
+                                    </div>
+                                    <span class="progress-percent">75%</span>
+                                </div>
+                                
+                                <div class="progress-item">
+                                    <div class="subject-info">
+                                        <h4>Fisika</h4>
+                                        <p>10/14 materi selesai</p>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 71%"></div>
+                                    </div>
+                                    <span class="progress-percent">71%</span>
+                                </div>
+                                
+                                <div class="progress-item">
+                                    <div class="subject-info">
+                                        <h4>Kimia</h4>
+                                        <p>8/12 materi selesai</p>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 67%"></div>
+                                    </div>
+                                    <span class="progress-percent">67%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Aksi Cepat</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="quick-actions">
+                                <button class="action-btn" data-action="view-assignments">
+                                    <i class="fas fa-tasks"></i>
+                                    <span>Lihat Tugas</span>
+                                </button>
+                                <button class="action-btn" data-action="view-grades">
+                                    <i class="fas fa-star"></i>
+                                    <span>Lihat Nilai</span>
+                                </button>
+                                <button class="action-btn" data-action="view-schedule">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Jadwal</span>
+                                </button>
+                                <button class="action-btn" data-action="view-materials">
+                                    <i class="fas fa-book"></i>
+                                    <span>Materi</span>
+                                </button>
+                                <button class="action-btn" data-action="view-library">
+                                    <i class="fas fa-book-reader"></i>
+                                    <span>Perpustakaan</span>
+                                </button>
+                                <button class="action-btn" data-action="view-payments">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Pembayaran</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Schedule Content -->
+            <div class="content-page" id="schedule-content">
+                <div class="page-header">
+                    <h2>Jadwal Kelas</h2>
+                    <div class="page-actions">
+                        <select class="card-filter">
+                            <option>Minggu Ini</option>
+                            <option>Minggu Depan</option>
+                            <option>Bulan Ini</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="schedule-calendar">
+                    <div class="calendar-header">
+                        <h3>Senin, 25 November 2024</h3>
+                    </div>
+                    <div class="calendar-content">
+                        <div class="time-slot">
+                            <div class="time">08:00 - 09:30</div>
+                            <div class="class-info">
+                                <h4>Matematika</h4>
+                                <p>Pak Budi • Ruang 201</p>
+                                <span class="topic">Integral</span>
+                            </div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">10:00 - 11:30</div>
+                            <div class="class-info">
+                                <h4>Bahasa Indonesia</h4>
+                                <p>Bu Sari • Ruang 202</p>
+                                <span class="topic">Teks Argumentasi</span>
+                            </div>
+                        </div>
+                        <div class="time-slot break">
+                            <div class="time">11:30 - 12:30</div>
+                            <div class="class-info">
+                                <h4>Istirahat</h4>
+                            </div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">13:00 - 14:30</div>
+                            <div class="class-info">
+                                <h4>Fisika</h4>
+                                <p>Pak Andi • Lab Fisika</p>
+                                <span class="topic">Gelombang</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other content pages will be loaded dynamically -->
+        </div>
+    </main>
+
+    <!-- Flash prevention handled by base template -->
+    <script src="js/template-config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard-base.js"></script>
+    <script src="js/dashboard-student.js"></script>
+</body>
+</html>

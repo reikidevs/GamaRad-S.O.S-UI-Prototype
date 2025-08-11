@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Siswa - Sakola Pintar</title>
+    <script>
+        // Immediate script to prevent any flash
+        (function() {
+            var style = document.createElement('style');
+            style.innerHTML = `
+                html, body { 
+                    visibility: hidden !important; 
+                    background: #f9fafb !important;
+                    margin: 0 !important;
+                    padding: 0 !important;
+                }
+                .show-content html, .show-content body { 
+                    visibility: visible !important; 
+                }
+            `;
+            document.head.appendChild(style);
+        })();
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap">
+</head>
+<body class="dashboard-body">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Sakola Pintar</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li class="nav-item active">
+                    <a href="#dashboard" class="nav-link" data-page="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#schedule" class="nav-link" data-page="schedule">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Jadwal Kelas</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#subjects" class="nav-link" data-page="subjects">
+                        <i class="fas fa-book"></i>
+                        <span>Mata Pelajaran</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#assignments" class="nav-link" data-page="assignments">
+                        <i class="fas fa-tasks"></i>
+                        <span>Tugas</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#grades" class="nav-link" data-page="grades">
+                        <i class="fas fa-star"></i>
+                        <span>Nilai</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#attendance" class="nav-link" data-page="attendance">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Kehadiran</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#materials" class="nav-link" data-page="materials">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Materi</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#library" class="nav-link" data-page="library">
+                        <i class="fas fa-book-open"></i>
+                        <span>Perpustakaan</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#payments" class="nav-link" data-page="payments">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Pembayaran</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#profile" class="nav-link" data-page="profile">
+                        <i class="fas fa-user"></i>
+                        <span>Profil</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="user-details">
+                    <div class="user-name" id="userName">Siswa</div>
+                    <div class="user-role">Siswa</div>
+                </div>
+            </div>
+            <button class="logout-btn" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Keluar</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-left">
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="page-title" id="pageTitle">Dashboard</h1>
+            </div>
+            
+            <div class="header-right">
+                <div class="header-search">
+                    <input type="text" placeholder="Cari..." class="search-input">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                
+                <div class="header-notifications">
+                    <button class="notification-btn" id="notificationBtn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <div class="notification-dropdown" id="notificationDropdown">
+                        <div class="notification-header">
+                            <h3>Notifikasi</h3>
+                            <button class="mark-all-read">Tandai Semua Dibaca</button>
+                        </div>
+                        <div class="notification-list">
+                            <div class="notification-item unread">
+                                <div class="notification-icon">
+                                    <i class="fas fa-tasks"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <h4>Tugas Baru</h4>
+                                    <p>Tugas Matematika telah ditambahkan</p>
+                                    <span class="notification-time">2 jam yang lalu</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="header-profile">
+                    <div class="profile-info">
+                        <span class="profile-name" id="headerUserName">Siswa</span>
+                        <span class="profile-role">Siswa</span>
+                    </div>
+                    <div class="profile-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content Area -->
+        <div class="content-area">
+            <!-- Dashboard Content -->
+            <div id="dashboard-content" class="content-page active">
+                <!-- Welcome Section -->
+                <section class="welcome-section">
+                    <div class="welcome-card">
+                        <div class="welcome-content">
+                            <h2 class="welcome-title">Selamat Datang, <span id="welcomeUserName">Siswa</span>!</h2>
+                            <p class="welcome-message" id="welcomeMessage">Semoga hari ini menjadi hari yang produktif untuk belajar.</p>
+                            <div class="welcome-stats">
+                                <div class="welcome-stat">
+                                    <span class="stat-number">5</span>
+                                    <span class="stat-label">Tugas Aktif</span>
+                                </div>
+                                <div class="welcome-stat">
+                                    <span class="stat-number">3</span>
+                                    <span class="stat-label">Kelas Hari Ini</span>
+                                </div>
+                                <div class="welcome-stat">
+                                    <span class="stat-number">85%</span>
+                                    <span class="stat-label">Kehadiran</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="welcome-illustration">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quick Stats -->
+                <section class="dashboard-stats">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 class="stat-number">12</h3>
+                                <p class="stat-label">Total Tugas</p>
+                                <span class="stat-change positive">+2 minggu ini</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 class="stat-number">85%</h3>
+                                <p class="stat-label">Kehadiran</p>
+                                <span class="stat-change positive">+5% dari bulan lalu</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 class="stat-number">8.5</h3>
+                                <p class="stat-label">Rata-rata Nilai</p>
+                                <span class="stat-change positive">+0.3 dari semester lalu</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 class="stat-number">8</h3>
+                                <p class="stat-label">Mata Pelajaran</p>
+                                <span class="stat-change neutral">Semester ini</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Dashboard Grid -->
+                <div class="dashboard-grid">
+                    <!-- Today's Schedule -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-calendar-day"></i>
+                                Jadwal Hari Ini
+                            </h3>
+                            <span class="current-time" id="currentTime">--:--</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="schedule-list">
+                                <div class="schedule-item current">
+                                    <div class="schedule-time">08:00 - 09:30</div>
+                                    <div class="schedule-subject">Matematika</div>
+                                    <div class="schedule-teacher">Bu Sarah</div>
+                                    <div class="schedule-room">Ruang 12A</div>
+                                </div>
+                                <div class="schedule-item">
+                                    <div class="schedule-time">09:45 - 11:15</div>
+                                    <div class="schedule-subject">Bahasa Indonesia</div>
+                                    <div class="schedule-teacher">Pak Ahmad</div>
+                                    <div class="schedule-room">Ruang 12A</div>
+                                </div>
+                                <div class="schedule-item">
+                                    <div class="schedule-time">13:00 - 14:30</div>
+                                    <div class="schedule-subject">Fisika</div>
+                                    <div class="schedule-teacher">Bu Rina</div>
+                                    <div class="schedule-room">Lab Fisika</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Assignments -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-clipboard-list"></i>
+                                Tugas Terbaru
+                            </h3>
+                            <a href="#assignments" class="card-action">Lihat Semua</a>
+                        </div>
+                        <div class="card-content">
+                            <div class="assignment-list">
+                                <div class="assignment-item urgent">
+                                    <div class="assignment-subject">Matematika</div>
+                                    <div class="assignment-title">Soal Integral</div>
+                                    <div class="assignment-due">Deadline: Besok</div>
+                                    <div class="assignment-status">Belum Dikerjakan</div>
+                                </div>
+                                <div class="assignment-item">
+                                    <div class="assignment-subject">Bahasa Indonesia</div>
+                                    <div class="assignment-title">Analisis Puisi</div>
+                                    <div class="assignment-due">Deadline: 3 hari lagi</div>
+                                    <div class="assignment-status">Dalam Progress</div>
+                                </div>
+                                <div class="assignment-item completed">
+                                    <div class="assignment-subject">Fisika</div>
+                                    <div class="assignment-title">Laporan Praktikum</div>
+                                    <div class="assignment-due">Selesai</div>
+                                    <div class="assignment-status">Nilai: 85</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Grades -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-chart-line"></i>
+                                Nilai Terbaru
+                            </h3>
+                            <a href="#grades" class="card-action">Lihat Semua</a>
+                        </div>
+                        <div class="card-content">
+                            <div class="grade-list">
+                                <div class="grade-item">
+                                    <div class="grade-subject">Matematika</div>
+                                    <div class="grade-assignment">Ulangan Harian 3</div>
+                                    <div class="grade-score excellent">92</div>
+                                </div>
+                                <div class="grade-item">
+                                    <div class="grade-subject">Bahasa Indonesia</div>
+                                    <div class="grade-assignment">Essay Argumentasi</div>
+                                    <div class="grade-score good">85</div>
+                                </div>
+                                <div class="grade-item">
+                                    <div class="grade-subject">Fisika</div>
+                                    <div class="grade-assignment">Praktikum Gelombang</div>
+                                    <div class="grade-score good">78</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Announcements -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-bullhorn"></i>
+                                Pengumuman
+                            </h3>
+                            <a href="#announcements" class="card-action">Lihat Semua</a>
+                        </div>
+                        <div class="card-content">
+                            <div class="announcement-list">
+                                <div class="announcement-item">
+                                    <div class="announcement-title">Libur Nasional</div>
+                                    <div class="announcement-content">Sekolah libur pada tanggal 17 Agustus 2024</div>
+                                    <div class="announcement-date">2 hari yang lalu</div>
+                                </div>
+                                <div class="announcement-item">
+                                    <div class="announcement-title">Ujian Tengah Semester</div>
+                                    <div class="announcement-content">UTS akan dimulai tanggal 25 Agustus 2024</div>
+                                    <div class="announcement-date">1 minggu yang lalu</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other content pages will be loaded dynamically -->
+        </div>
+    </main>
+
+    <script>
+        // Show content when everything is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            document.documentElement.classList.add('show-content');
+        });
+        
+        // Fallback
+        window.addEventListener('load', function() {
+            document.documentElement.classList.add('show-content');
+        });
+    </script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard-student.js"></script>
+</body>
+</html>

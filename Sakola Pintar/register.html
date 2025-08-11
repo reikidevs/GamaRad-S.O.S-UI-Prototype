@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar - Sakola Pintar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="auth-body">
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="auth-logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Sakola Pintar</span>
+                </div>
+                <h2>Daftar Akun Baru</h2>
+                <p>Bergabunglah dengan platform manajemen sekolah modern</p>
+            </div>
+            
+            <form class="auth-form" id="registerForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">Nama Depan</label>
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="firstName" name="firstName" placeholder="Nama depan" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastName">Nama Belakang</label>
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="lastName" name="lastName" placeholder="Nama belakang" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" name="email" placeholder="Masukkan email Anda" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Nomor Telepon</label>
+                    <div class="input-group">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="phone" name="phone" placeholder="Nomor telepon" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="role">Daftar Sebagai</label>
+                    <div class="input-group">
+                        <i class="fas fa-user-tag"></i>
+                        <select id="role" name="role" required>
+                            <option value="">Pilih peran Anda</option>
+                            <option value="student">Siswa</option>
+                            <option value="teacher">Guru</option>
+                            <option value="parent">Orang Tua</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group" id="schoolGroup">
+                    <label for="school">Nama Sekolah</label>
+                    <div class="input-group">
+                        <i class="fas fa-school"></i>
+                        <input type="text" id="school" name="school" placeholder="Nama sekolah" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" name="password" placeholder="Buat password" required>
+                            <button type="button" class="password-toggle" onclick="togglePassword('password', 'passwordIcon')">
+                                <i class="fas fa-eye" id="passwordIcon"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Konfirmasi Password</label>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Konfirmasi password" required>
+                            <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword', 'confirmPasswordIcon')">
+                                <i class="fas fa-eye" id="confirmPasswordIcon"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox" name="terms" required>
+                        <span class="checkmark"></span>
+                        Saya setuju dengan <a href="#" class="terms-link">Syarat & Ketentuan</a>
+                    </label>
+                </div>
+                
+                <div class="form-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox" name="newsletter">
+                        <span class="checkmark"></span>
+                        Saya ingin menerima newsletter dan update terbaru
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-full">
+                    <span class="btn-text">Daftar Sekarang</span>
+                    <span class="btn-loading" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i> Memproses...
+                    </span>
+                </button>
+            </form>
+            
+            <div class="auth-divider">
+                <span>atau</span>
+            </div>
+            
+            <div class="social-login">
+                <button class="social-btn google-btn">
+                    <i class="fab fa-google"></i>
+                    Daftar dengan Google
+                </button>
+                <button class="social-btn microsoft-btn">
+                    <i class="fab fa-microsoft"></i>
+                    Daftar dengan Microsoft
+                </button>
+            </div>
+            
+            <div class="auth-footer">
+                <p>Sudah punya akun? <a href="login.html">Masuk sekarang</a></p>
+                <p><a href="index.html">← Kembali ke beranda</a></p>
+            </div>
+        </div>
+        
+        <div class="auth-illustration">
+            <div class="illustration-content">
+                <i class="fas fa-user-plus"></i>
+                <h3>Bergabung dengan Sakola Pintar</h3>
+                <p>Daftar sekarang dan nikmati kemudahan mengelola pendidikan dengan platform yang terintegrasi dan mudah digunakan.</p>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Akses ke semua fitur pembelajaran</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Dashboard yang mudah digunakan</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Notifikasi real-time</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Support 24/7</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+    <script src="js/register.js"></script>
+</body>
+</html>

@@ -2,15 +2,29 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>GamaRad S.O.S - Case Detail</title>
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <!-- Google Fonts - Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Fonts - Nunito and Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/rrtc-theme.css">
     <link rel="stylesheet" href="../css/gamarad.css">
+    <link rel="stylesheet" href="../css/mobile-enhancements.css">
+    <link rel="stylesheet" href="../css/mobile-navbar.css">
+    <link rel="stylesheet" href="../css/home-styles.css">
+    <link rel="stylesheet" href="../css/case-styles.css">
+    <link rel="stylesheet" href="../css/pneumothorax-enhanced.css">
+    <link rel="stylesheet" href="../css/pneumothorax-mobile.css">
 </head>
 <body>
     <!-- Header with Navigation -->
@@ -47,15 +61,16 @@
             <!-- Content will be populated dynamically with JavaScript -->
             <div class="case-banner">
                 <div class="case-banner-image">
-                    <img src="../img/cases/pneumothorax-banner.jpg" alt="Pneumothorax">
+                    <img src="https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Pneumothorax Chest X-ray" loading="eager">
                 </div>
                 <div class="case-banner-overlay"></div>
                 <div class="case-banner-content">
-                    <div class="case-badge">Common</div>
+                    <div class="case-badge emergency"><i class="fas fa-exclamation-triangle"></i> Medical Emergency</div>
                     <h2 class="case-title">Pneumothorax</h2>
                     <div class="case-meta">
                         <span><i class="fas fa-folder"></i> Chest (Thorax)</span>
                         <span><i class="fas fa-graduation-cap"></i> 5 Learning Topics</span>
+                        <span><i class="fas fa-user-md"></i> Radiology</span>
                     </div>
                 </div>
             </div>
@@ -69,23 +84,24 @@
             </nav>
             
             <div class="case-overview">
-                <p>Pneumothorax adalah kondisi dimana terdapat udara bebas di dalam rongga pleura yang menyebabkan kolaps paru. Kondisi ini dapat terjadi secara spontan, traumatik, atau iatrogenik. Pelajari pengenalan, diagnosis, dan manajemen kasus pneumothorax dengan materi pembelajaran interaktif berikut.</p>
+                <p><span class="highlight-text">Pneumothorax</span> adalah kondisi dimana udara terkumpul di dalam rongga pleura yang memisahkan paru-paru dari dinding dada. Kondisi ini dapat menyebabkan kolaps paru sebagian atau seluruhnya.</p>
+                <p>Pneumothorax dapat terjadi spontan pada orang sehat (primary spontaneous pneumothorax) atau sebagai komplikasi dari penyakit paru-paru yang mendasarinya (secondary spontaneous pneumothorax).</p>
+                <div class="key-facts">
+                    <div class="key-fact"><i class="fas fa-info-circle"></i> Dapat mengancam nyawa jika tidak ditangani</div>
+                    <div class="key-fact"><i class="fas fa-procedures"></i> Memerlukan penanganan segera</div>
+                    <div class="key-fact"><i class="fas fa-lungs"></i> Dapat terjadi spontan atau akibat trauma</div>
+                    <div class="key-fact"><i class="fas fa-user-md"></i> Diagnosis melalui pemeriksaan radiologi</div>
+                </div>
             </div>
         </section>
 
         <!-- Learning Topics -->
         <section class="learning-section">
-            <h3 class="section-title">Materi Pembelajaran</h3>
+            <h3 class="section-title"><i class="fas fa-book-medical"></i> Materi Pembelajaran</h3>
             
-            <div class="learning-progress">
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 60%"></div>
-                </div>
-                <div class="progress-stats">
-                    <span class="progress-percent">60% Selesai</span>
-                    <span class="progress-detail">3 dari 5 Topik</span>
-                </div>
-            </div>
+            <!-- Progress bar removed as per request - app functions more as a guidebook -->
+            
+            <p class="swipe-hint"><i class="fas fa-arrow-right"></i> Geser untuk melihat lebih banyak</p>
             
             <div class="learning-list">
                 <!-- Topic 1: Terminology -->
@@ -95,12 +111,12 @@
                     </div>
                     <div class="learning-content">
                         <h4>Terminology</h4>
-                        <p>Definisi, klasifikasi, dan terminologi terkait pneumothorax.</p>
+                        <p>Definisi, klasifikasi, dan terminologi dengan ilustrasi terkait pneumothorax.</p>
                         <div class="learning-status">
                             <span class="status-badge completed"><i class="fas fa-check"></i> Selesai</span>
                         </div>
                     </div>
-                    <a href="learning.html?id=pneumothorax&topic=terminology" class="learning-button"><i class="fas fa-play"></i></a>
+                    <a href="learning.html?id=pneumothorax&topic=terminology" class="learning-button"><i class="fas fa-book-open"></i></a>
                 </div>
                 
                 <!-- Topic 2: Clinical Presentation -->
@@ -110,12 +126,12 @@
                     </div>
                     <div class="learning-content">
                         <h4>Clinical Presentation</h4>
-                        <p>Gejala dan tanda klinis pneumothorax, termasuk variasi presentasi klinis.</p>
+                        <p>Gejala dan tanda klinis pneumothorax dengan gambar ilustrasi kasus.</p>
                         <div class="learning-status">
                             <span class="status-badge completed"><i class="fas fa-check"></i> Selesai</span>
                         </div>
                     </div>
-                    <a href="learning.html?id=pneumothorax&topic=clinical-presentation" class="learning-button"><i class="fas fa-play"></i></a>
+                    <a href="learning.html?id=pneumothorax&topic=clinical-presentation" class="learning-button"><i class="fas fa-book-open"></i></a>
                 </div>
                 
                 <!-- Topic 3: Radiological Findings -->
@@ -125,12 +141,12 @@
                     </div>
                     <div class="learning-content">
                         <h4>Radiological Findings</h4>
-                        <p>Temuan radiologis pada kasus pneumothorax dengan berbagai modalitas pencitraan.</p>
+                        <p>Temuan radiologis pada kasus pneumothorax dengan contoh gambar X-ray.</p>
                         <div class="learning-status">
                             <span class="status-badge completed"><i class="fas fa-check"></i> Selesai</span>
                         </div>
                     </div>
-                    <a href="learning.html?id=pneumothorax&topic=radiological-findings" class="learning-button"><i class="fas fa-play"></i></a>
+                    <a href="learning.html?id=pneumothorax&topic=radiological-findings" class="learning-button"><i class="fas fa-book-open"></i></a>
                 </div>
                 
                 <!-- Topic 4: Management -->
@@ -140,12 +156,12 @@
                     </div>
                     <div class="learning-content">
                         <h4>Management</h4>
-                        <p>Pendekatan terapi dan tatalaksana pneumothorax berdasarkan jenis dan severitas.</p>
+                        <p>Pendekatan terapi dan tatalaksana pneumothorax dengan diagram ilustratif.</p>
                         <div class="learning-status">
                             <span class="status-badge current"><i class="fas fa-circle"></i> Sedang Dipelajari</span>
                         </div>
                     </div>
-                    <a href="learning.html?id=pneumothorax&topic=management" class="learning-button"><i class="fas fa-play"></i></a>
+                    <a href="learning.html?id=pneumothorax&topic=management" class="learning-button"><i class="fas fa-book-open"></i></a>
                 </div>
                 
                 <!-- Topic 5: Quiz -->
@@ -168,12 +184,13 @@
         
         <!-- Related Cases -->
         <section class="related-section">
-            <h3 class="section-title">Kasus Terkait</h3>
+            <h3 class="section-title"><i class="fas fa-folder-open"></i> Kasus Terkait</h3>
+            <p class="swipe-hint"><i class="fas fa-arrow-right"></i> Geser untuk melihat lebih banyak</p>
             
-            <div class="related-cases">
+            <div class="related-cases" id="related-cases-swipe">
                 <div class="related-case">
                     <div class="related-image">
-                        <img src="../img/cases/tension-pneumothorax-thumb.jpg" alt="Tension Pneumothorax">
+                        <img src="https://images.unsplash.com/photo-1579154341098-e4e158cc7f55?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Tension Pneumothorax" loading="lazy">
                     </div>
                     <div class="related-content">
                         <h4>Tension Pneumothorax</h4>
@@ -184,7 +201,7 @@
                 
                 <div class="related-case">
                     <div class="related-image">
-                        <img src="../img/cases/pleural-effusion-thumb.jpg" alt="Pleural Effusion">
+                        <img src="https://images.unsplash.com/photo-1631815588090-d1bcbe9a3537?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Pleural Effusion" loading="lazy">
                     </div>
                     <div class="related-content">
                         <h4>Pleural Effusion</h4>
@@ -195,6 +212,24 @@
             </div>
         </section>
     </main>
+
+    <!-- Quick Action Floating Button -->
+    <div class="floating-action">
+        <button class="fab-button" id="quick-action-btn">
+            <i class="fas fa-plus"></i>
+        </button>
+        <div class="fab-menu" id="fab-menu">
+            <a href="#" class="fab-item" title="Bookmark">
+                <i class="fas fa-bookmark"></i>
+            </a>
+            <a href="#" class="fab-item" title="Share">
+                <i class="fas fa-share-alt"></i>
+            </a>
+            <a href="#" class="fab-item" title="Print">
+                <i class="fas fa-print"></i>
+            </a>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="app-footer">
@@ -217,5 +252,134 @@
     <!-- Custom JS -->
     <script src="../js/app.js"></script>
     <script src="../js/case.js"></script>
+    
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <a href="home.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="regio-chest.html" class="nav-item">
+            <i class="fas fa-lungs"></i>
+            <span>Thorax</span>
+        </a>
+        <a href="#" class="nav-item active">
+            <i class="fas fa-file-medical"></i>
+            <span>Case</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-search"></i>
+            <span>Search</span>
+        </a>
+    </nav>
+
+    <!-- JavaScript for Mobile Interactions -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observer untuk animasi saat elemen masuk viewport
+            const observerOptions = {
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe semua learning items dan related cases untuk animasi scroll
+            document.querySelectorAll('.learning-item, .related-case').forEach(item => {
+                observer.observe(item);
+                item.classList.add('animate-on-scroll');
+            });
+            
+            // Tambahkan kelas active saat item diklik untuk feedback yang lebih baik
+            document.querySelectorAll('.learning-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    this.classList.add('active-item');
+                    setTimeout(() => {
+                        this.classList.remove('active-item');
+                    }, 300);
+                });
+            });
+            
+            // Tambahkan efek swipe pada item-item yang bisa digeser
+            let isDragging = false;
+            let startX, scrollLeft;
+            const slider = document.querySelector('.learning-list');
+            const relatedCases = document.querySelector('#related-cases-swipe');
+            
+            // Function to add swipe functionality to an element
+            function addSwipeCapability(element) {
+                if (!element) return;
+                
+                // Mouse events
+                element.addEventListener('mousedown', (e) => {
+                    isDragging = true;
+                    startX = e.pageX - element.offsetLeft;
+                    scrollLeft = element.scrollLeft;
+                });
+                
+                element.addEventListener('mouseleave', () => {
+                    isDragging = false;
+                });
+                
+                element.addEventListener('mouseup', () => {
+                    isDragging = false;
+                });
+                
+                element.addEventListener('mousemove', (e) => {
+                    if (!isDragging) return;
+                    e.preventDefault();
+                    const x = e.pageX - element.offsetLeft;
+                    const walk = (x - startX) * 2;
+                    element.scrollLeft = scrollLeft - walk;
+                });
+                
+                // Touch events for mobile
+                element.addEventListener('touchstart', (e) => {
+                    isDragging = true;
+                    startX = e.touches[0].pageX - element.offsetLeft;
+                    scrollLeft = element.scrollLeft;
+                });
+                
+                element.addEventListener('touchend', () => {
+                    isDragging = false;
+                });
+                
+                element.addEventListener('touchmove', (e) => {
+                    if (!isDragging) return;
+                    const x = e.touches[0].pageX - element.offsetLeft;
+                    const walk = (x - startX) * 2;
+                    element.scrollLeft = scrollLeft - walk;
+                });
+            }
+            
+            // Add swipe functionality to both scrollable areas
+            addSwipeCapability(slider);
+            addSwipeCapability(relatedCases);
+            
+            // Floating Action Button
+            const quickActionBtn = document.getElementById('quick-action-btn');
+            const fabMenu = document.getElementById('fab-menu');
+            
+            if (quickActionBtn && fabMenu) {
+                quickActionBtn.addEventListener('click', function() {
+                    fabMenu.classList.toggle('active');
+                    this.classList.toggle('active');
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!quickActionBtn.contains(e.target) && !fabMenu.contains(e.target)) {
+                        fabMenu.classList.remove('active');
+                        quickActionBtn.classList.remove('active');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

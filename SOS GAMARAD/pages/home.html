@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="#1e1e1e">
+    <meta name="theme-color" content="#1D1D1D">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
     <title>GamaRad S.O.S - Home</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -15,6 +17,8 @@
     <link rel="stylesheet" href="../css/rrtc-theme.css">
     <link rel="stylesheet" href="../css/gamarad.css">
     <link rel="stylesheet" href="../css/mobile-enhancements.css">
+    <link rel="stylesheet" href="../css/mobile-navbar.css">
+    <link rel="stylesheet" href="../css/home-styles.css">
 </head>
 <body>
     <!-- Header with Navigation -->
@@ -49,14 +53,21 @@
         <!-- Welcome Section -->
         <section class="welcome-section">
             <div class="welcome-content">
+                <div class="welcome-icon">
+                    <i class="fas fa-radiation-alt pulse-icon"></i>
+                </div>
                 <h2>Selamat Datang di GamaRad S.O.S</h2>
                 <p>Pelajari radiologi emergensi dengan mudah dan interaktif. Pilih regio anatomi untuk memulai.</p>
+                <div class="welcome-actions">
+                    <a href="#categories" class="action-button primary"><i class="fas fa-th-large"></i> Pilih Regio</a>
+                    <a href="learning.html" class="action-button secondary"><i class="fas fa-book-reader"></i> Learning</a>
+                </div>
             </div>
         </section>
 
         <!-- Regio Categories -->
-        <section class="categories-section">
-            <h2 class="section-title">Pilih Regio Anatomi</h2>
+        <section class="categories-section" id="categories">
+            <h2 class="section-title"><i class="fas fa-th-large"></i> Pilih Regio Anatomi</h2>
             
             <div class="category-grid">
                 <!-- Chest Category -->
@@ -67,7 +78,7 @@
                     <div class="category-content">
                         <h3>Chest (Thorax)</h3>
                         <p>Radiologi emergensi untuk regio thorax</p>
-                        <a href="regio.html?id=chest" class="category-button">Lihat Case</a>
+                        <a href="regio-chest.html" class="category-button">Lihat Case</a>
                     </div>
                 </div>
                 
@@ -169,16 +180,22 @@
                     <span>Regio</span>
                 </a>
             </li>
+            <li class="mobile-nav-item center-item">
+                <a href="case.html" class="mobile-nav-link">
+                    <i class="fas fa-x-ray"></i>
+                    <span>Case</span>
+                </a>
+            </li>
             <li class="mobile-nav-item">
-                <a href="#" class="mobile-nav-link" id="mobile-search">
-                    <i class="fas fa-search"></i>
-                    <span>Search</span>
+                <a href="learning.html" class="mobile-nav-link">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Learning</span>
                 </a>
             </li>
             <li class="mobile-nav-item">
                 <a href="about.html" class="mobile-nav-link">
-                    <i class="fas fa-info-circle"></i>
-                    <span>About</span>
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
                 </a>
             </li>
         </ul>

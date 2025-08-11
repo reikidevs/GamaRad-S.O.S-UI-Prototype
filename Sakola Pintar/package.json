@@ -1,0 +1,58 @@
+{
+  "name": "sakola-pintar",
+  "version": "1.0.0",
+  "description": "Platform Manajemen Sekolah Modern - Template HTML/CSS/JS",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "npx serve .",
+    "dev": "python -m http.server 8000",
+    "build": "echo 'No build process needed for static HTML'",
+    "deploy": "echo 'Ready for deployment to any web server'"
+  },
+  "keywords": [
+    "school-management",
+    "education",
+    "dashboard",
+    "html-template",
+    "responsive",
+    "modern-ui",
+    "indonesia"
+  ],
+  "author": {
+    "name": "Sakola Pintar Team",
+    "email": "dev@sakolapintar.com",
+    "url": "https://sakolapintar.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sakolapintar/sakola-pintar.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sakolapintar/sakola-pintar/issues"
+  },
+  "homepage": "https://sakolapintar.com",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "python": ">=3.6.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "files": [
+    "index.html",
+    "login.html",
+    "register.html",
+    "dashboard-*.html",
+    "css/",
+    "js/",
+    "README.md"
+  ]
+}

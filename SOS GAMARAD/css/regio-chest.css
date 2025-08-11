@@ -1,0 +1,486 @@
+/**
+ * GamaRad S.O.S - Regio Chest Styles
+ * Menggunakan skema warna:
+ * - Background/Dominant: #1D1D1D (dark gray/black)
+ * - Important/Main: #FFB700 (bright yellow)
+ */
+
+/* Regio Header Styles */
+.regio-header {
+    background-color: #222;
+    padding: 30px 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.regio-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/patterns/lungs-pattern.svg');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: contain;
+    opacity: 0.08;
+    z-index: 0;
+}
+
+.regio-banner {
+    position: relative;
+    z-index: 1;
+}
+
+.regio-title {
+    color: #FFB700;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+}
+
+.regio-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: #FFB700;
+    border-radius: 2px;
+}
+
+.regio-description {
+    color: #e0e0e0;
+    font-size: 1rem;
+    max-width: 80%;
+    line-height: 1.6;
+}
+
+.breadcrumb {
+    margin-top: 20px;
+}
+
+.breadcrumb ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.breadcrumb li {
+    font-size: 0.85rem;
+    color: #aaa;
+}
+
+.breadcrumb li a {
+    color: #FFB700;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb li a:hover {
+    color: #ffd666;
+    text-decoration: underline;
+}
+
+.breadcrumb li:not(:last-child)::after {
+    content: '›';
+    margin: 0 8px;
+    color: #666;
+}
+
+.breadcrumb li.current {
+    color: #fff;
+    font-weight: 500;
+}
+
+/* Overview Section Styles */
+.overview-section {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.overview-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.overview-text {
+    flex: 1;
+    min-width: 250px;
+}
+
+.overview-text p {
+    color: #e0e0e0;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.anatomy-diagram {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+.anatomy-image {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.anatomy-image:hover {
+    transform: scale(1.02);
+}
+
+.anatomy-caption {
+    font-size: 0.85rem;
+    color: #aaa;
+    margin-top: 10px;
+}
+
+/* Category Tabs Styles */
+.case-categories {
+    margin-bottom: 25px;
+}
+
+.category-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.category-tab {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.category-tab:hover {
+    background-color: #444;
+}
+
+.category-tab.active {
+    background-color: #FFB700;
+    color: #1D1D1D;
+    font-weight: 600;
+}
+
+/* Case Grid Enhancements */
+.case-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.case-card {
+    background-color: #2d2d2d;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #333;
+}
+
+.case-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-color: #444;
+}
+
+.case-image {
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+}
+
+.case-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.case-card:hover .case-image img {
+    transform: scale(1.1);
+}
+
+.case-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: #FFB700;
+    color: #1D1D1D;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.case-badge.emergency {
+    background-color: #ff3b30;
+    color: white;
+}
+
+.case-badge.advanced {
+    background-color: #5856d6;
+    color: white;
+}
+
+.case-content {
+    padding: 20px;
+}
+
+.case-content h3 {
+    color: white;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.case-content p {
+    color: #bbb;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.case-progress {
+    margin-bottom: 15px;
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: #444;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #FFB700;
+    border-radius: 4px;
+    transition: width 0.5s ease-out;
+}
+
+.progress-text {
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+.case-button {
+    display: block;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    margin-top: 15px;
+    border: 1px solid #444;
+}
+
+.case-button:hover {
+    background-color: #FFB700;
+    color: #1D1D1D;
+}
+
+/* Reading Approach Section */
+.approach-section {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 30px 0;
+}
+
+.approach-content {
+    margin-top: 20px;
+}
+
+.approach-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.approach-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+    background-color: #333;
+    border-radius: 8px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.approach-step:hover {
+    transform: translateX(5px);
+    background-color: #3a3a3a;
+}
+
+.step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #FFB700;
+    color: #1D1D1D;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-content h4 {
+    color: #fff;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.step-content p {
+    color: #bbb;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.approach-action {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.action-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #FFB700;
+    color: #1D1D1D;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.action-button:hover {
+    background-color: #ffc833;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.action-button.primary {
+    background-color: #FFB700;
+}
+
+.action-button.secondary {
+    background-color: #444;
+    color: #fff;
+}
+
+.action-button.secondary:hover {
+    background-color: #555;
+}
+
+/* Section Title Styles */
+.section-title {
+    color: #fff;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: #FFB700;
+    border-radius: 1.5px;
+}
+
+.section-title i {
+    color: #FFB700;
+    margin-right: 8px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .regio-description {
+        max-width: 100%;
+    }
+    
+    .overview-content {
+        flex-direction: column;
+    }
+    
+    .anatomy-diagram {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .case-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .regio-title {
+        font-size: 1.8rem;
+    }
+    
+    .approach-step {
+        flex-direction: column;
+    }
+    
+    .step-number {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .regio-header {
+        padding: 20px 15px;
+    }
+    
+    .regio-title {
+        font-size: 1.5rem;
+    }
+    
+    .category-tabs {
+        justify-content: center;
+    }
+    
+    .case-grid {
+        grid-template-columns: 1fr;
+    }
+}

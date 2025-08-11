@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - Sakola Pintar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/dashboard-flash-fix.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+    <!-- Dashboard Preloader -->
+    <div class="dashboard-preloader">
+        <div class="preloader-content">
+            <div class="preloader-spinner"></div>
+            <div class="preloader-text">Memuat Dashboard...</div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Sakola Pintar</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li class="nav-item active">
+                    <a href="#dashboard" class="nav-link" data-page="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#students" class="nav-link" data-page="students">
+                        <i class="fas fa-user-graduate"></i>
+                        <span>Manajemen Siswa</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#teachers" class="nav-link" data-page="teachers">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>Manajemen Guru</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#attendance" class="nav-link" data-page="attendance">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Kehadiran</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#payments" class="nav-link" data-page="payments">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Pembayaran</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#payroll" class="nav-link" data-page="payroll">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Penggajian</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#lms" class="nav-link" data-page="lms">
+                        <i class="fas fa-book-open"></i>
+                        <span>LMS</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#reports" class="nav-link" data-page="reports">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Laporan</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#settings" class="nav-link" data-page="settings">
+                        <i class="fas fa-cog"></i>
+                        <span>Pengaturan</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <div class="user-details">
+                    <span class="user-name" id="userName">Administrator</span>
+                    <span class="user-role">Admin</span>
+                </div>
+            </div>
+            <button class="logout-btn" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="page-title" id="pageTitle">Dashboard</h1>
+            </div>
+            <div class="header-right">
+                <div class="header-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Cari...">
+                </div>
+                <div class="header-notifications">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                </div>
+                <div class="header-profile">
+                    <img src="https://via.placeholder.com/40x40/4f46e5/ffffff?text=A" alt="Profile" class="profile-img">
+                </div>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <div class="page-content" id="pageContent">
+            <!-- Dashboard Content -->
+            <div class="content-page active" id="dashboard-content">
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>1,234</h3>
+                            <p>Total Siswa</p>
+                        </div>
+                        <div class="stat-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+5.2%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>89</h3>
+                            <p>Total Guru</p>
+                        </div>
+                        <div class="stat-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+2.1%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>94.5%</h3>
+                            <p>Kehadiran Hari Ini</p>
+                        </div>
+                        <div class="stat-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+1.3%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Rp 2.5M</h3>
+                            <p>Pendapatan Bulan Ini</p>
+                        </div>
+                        <div class="stat-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+8.7%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Kehadiran Siswa Hari Ini</h3>
+                            <button class="card-action">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <div class="attendance-chart">
+                                <div class="chart-placeholder">
+                                    <i class="fas fa-chart-pie"></i>
+                                    <p>Grafik Kehadiran</p>
+                                </div>
+                            </div>
+                            <div class="attendance-stats">
+                                <div class="attendance-item">
+                                    <span class="attendance-label">Hadir</span>
+                                    <span class="attendance-value">1,167</span>
+                                </div>
+                                <div class="attendance-item">
+                                    <span class="attendance-label">Sakit</span>
+                                    <span class="attendance-value">45</span>
+                                </div>
+                                <div class="attendance-item">
+                                    <span class="attendance-label">Izin</span>
+                                    <span class="attendance-value">22</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Aktivitas Terbaru</h3>
+                            <button class="card-action">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-user-plus"></i>
+                                    </div>
+                                    <div class="activity-info">
+                                        <p>Siswa baru terdaftar: Ahmad Rizki</p>
+                                        <span class="activity-time">2 jam yang lalu</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-credit-card"></i>
+                                    </div>
+                                    <div class="activity-info">
+                                        <p>Pembayaran SPP diterima dari Siti Nurhaliza</p>
+                                        <span class="activity-time">4 jam yang lalu</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    <div class="activity-info">
+                                        <p>Materi baru ditambahkan: Matematika Kelas X</p>
+                                        <span class="activity-time">6 jam yang lalu</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Pembayaran Pending</h3>
+                            <button class="card-action">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <div class="payment-list">
+                                <div class="payment-item">
+                                    <div class="payment-info">
+                                        <span class="payment-name">Budi Santoso</span>
+                                        <span class="payment-type">SPP November</span>
+                                    </div>
+                                    <span class="payment-amount">Rp 500,000</span>
+                                </div>
+                                <div class="payment-item">
+                                    <div class="payment-info">
+                                        <span class="payment-name">Dewi Sartika</span>
+                                        <span class="payment-type">Uang Gedung</span>
+                                    </div>
+                                    <span class="payment-amount">Rp 2,000,000</span>
+                                </div>
+                                <div class="payment-item">
+                                    <div class="payment-info">
+                                        <span class="payment-name">Andi Wijaya</span>
+                                        <span class="payment-type">SPP November</span>
+                                    </div>
+                                    <span class="payment-amount">Rp 500,000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Jadwal Hari Ini</h3>
+                            <button class="card-action">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <div class="schedule-list">
+                                <div class="schedule-item">
+                                    <div class="schedule-time">08:00</div>
+                                    <div class="schedule-info">
+                                        <span class="schedule-title">Rapat Guru</span>
+                                        <span class="schedule-location">Ruang Guru</span>
+                                    </div>
+                                </div>
+                                <div class="schedule-item">
+                                    <div class="schedule-time">10:00</div>
+                                    <div class="schedule-info">
+                                        <span class="schedule-title">Presentasi Siswa Baru</span>
+                                        <span class="schedule-location">Aula</span>
+                                    </div>
+                                </div>
+                                <div class="schedule-item">
+                                    <div class="schedule-time">14:00</div>
+                                    <div class="schedule-info">
+                                        <span class="schedule-title">Evaluasi Kurikulum</span>
+                                        <span class="schedule-location">Ruang Kepala Sekolah</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Students Content -->
+            <div class="content-page" id="students-content">
+                <div class="page-header">
+                    <h2>Manajemen Siswa</h2>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-plus"></i>
+                        Tambah Siswa
+                    </button>
+                </div>
+                <div class="content-card">
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>NIS</th>
+                                    <th>Nama</th>
+                                    <th>Kelas</th>
+                                    <th>Email</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2024001</td>
+                                    <td>Ahmad Rizki</td>
+                                    <td>X IPA 1</td>
+                                    <td>ahmad.rizki@email.com</td>
+                                    <td><span class="status-badge active">Aktif</span></td>
+                                    <td>
+                                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2024002</td>
+                                    <td>Siti Nurhaliza</td>
+                                    <td>X IPS 2</td>
+                                    <td>siti.nurhaliza@email.com</td>
+                                    <td><span class="status-badge active">Aktif</span></td>
+                                    <td>
+                                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other content pages will be loaded dynamically -->
+            <div class="content-page" id="teachers-content">
+                <div class="page-header">
+                    <h2>Manajemen Guru & Staff</h2>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-plus"></i>
+                        Tambah Guru
+                    </button>
+                </div>
+                <div class="content-placeholder">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Manajemen Guru & Staff</h3>
+                    <p>Kelola data guru dan staff sekolah</p>
+                </div>
+            </div>
+
+            <div class="content-page" id="attendance-content">
+                <div class="page-header">
+                    <h2>Manajemen Kehadiran</h2>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-calendar-plus"></i>
+                        Rekap Kehadiran
+                    </button>
+                </div>
+                <div class="content-placeholder">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Sistem Kehadiran</h3>
+                    <p>Monitor dan kelola kehadiran siswa dan guru</p>
+                </div>
+            </div>
+
+            <div class="content-page" id="payments-content">
+                <div class="page-header">
+                    <h2>Manajemen Pembayaran</h2>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-plus"></i>
+                        Tambah Pembayaran
+                    </button>
+                </div>
+                <div class="content-placeholder">
+                    <i class="fas fa-credit-card"></i>
+                    <h3>Sistem Pembayaran</h3>
+                    <p>Kelola SPP, uang gedung, dan pembayaran lainnya</p>
+                </div>
+            </div>
+
+            <div class="content-page" id="payroll-content">
+                <div class="page-header">
+                    <h2>Manajemen Penggajian</h2>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-calculator"></i>
+                        Hitung Gaji
+                    </button>
+                </div>
+                <div class="content-placeholder">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3>Sistem Penggajian</h3>
+                    <p>Kelola gaji guru dan staff</p>
+                </div>
+            </div>
+
+            <div class="content-page" id="lms-content">
+                <div class="page-header">
+                    <h2>Learning Management System</h2>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-plus"></i>
+                        Tambah Materi
+                    </button>
+                </div>
+                <div class="content-placeholder">
+                    <i class="fas fa-book-open"></i>
+                    <h3>LMS Sekolah</h3>
+                    <p>Platform pembelajaran online</p>
+                </div>
+            </div>
+
+            <div class="content-page" id="reports-content">
+                <div class="page-header">
+                    <h2>Laporan & Analitik</h2>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-download"></i>
+                        Export Laporan
+                    </button>
+                </div>
+                <div class="content-placeholder">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Laporan Sekolah</h3>
+                    <p>Analitik dan laporan komprehensif</p>
+                </div>
+            </div>
+
+            <div class="content-page" id="settings-content">
+                <div class="page-header">
+                    <h2>Pengaturan Sistem</h2>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-save"></i>
+                        Simpan Pengaturan
+                    </button>
+                </div>
+                <div class="content-placeholder">
+                    <i class="fas fa-cog"></i>
+                    <h3>Pengaturan</h3>
+                    <p>Konfigurasi sistem dan preferensi</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/template-config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard-base.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

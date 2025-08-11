@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Sakola Pintar</title>
+    <!-- CSS Loading - Konsisten untuk semua role -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+    <!-- Dashboard Preloader - Konsisten untuk semua role -->
+    <div class="dashboard-preloader">
+        <div class="preloader-content">
+            <div class="preloader-spinner"></div>
+            <div class="preloader-text">Memuat Dashboard...</div>
+        </div>
+    </div>
+
+    <!-- Sidebar - Template yang bisa disesuaikan per role -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Sakola Pintar</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <!-- Navigation items akan disesuaikan per role -->
+                <li class="nav-item active">
+                    <a href="#dashboard" class="nav-link" data-page="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <!-- Additional nav items akan ditambahkan per role -->
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="user-details">
+                    <div class="user-name" id="userName">User</div>
+                    <div class="user-role">Role</div>
+                </div>
+            </div>
+            <button class="logout-btn" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Keluar</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content - Konsisten untuk semua role -->
+    <main class="main-content">
+        <!-- Header - Konsisten untuk semua role -->
+        <header class="main-header">
+            <div class="header-left">
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="page-title" id="pageTitle">Dashboard</h1>
+            </div>
+            
+            <div class="header-right">
+                <div class="header-search">
+                    <input type="text" placeholder="Cari..." class="search-input">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                
+                <div class="header-notifications">
+                    <button class="notification-btn" id="notificationBtn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">0</span>
+                    </button>
+                    <div class="notification-dropdown" id="notificationDropdown">
+                        <div class="notification-header">
+                            <h3>Notifikasi</h3>
+                            <button class="mark-all-read">Tandai Semua Dibaca</button>
+                        </div>
+                        <div class="notification-list">
+                            <div class="notification-empty">
+                                <p>Tidak ada notifikasi baru</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="header-profile">
+                    <div class="profile-info">
+                        <span class="profile-name" id="headerUserName">User</span>
+                        <span class="profile-role">Role</span>
+                    </div>
+                    <div class="profile-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content Area - Template yang bisa disesuaikan per role -->
+        <div class="content-area">
+            <!-- Dashboard Content - Default content -->
+            <div id="dashboard-content" class="content-page active">
+                <!-- Welcome Section - Konsisten untuk semua role -->
+                <section class="welcome-section">
+                    <div class="welcome-card">
+                        <div class="welcome-content">
+                            <h2 class="welcome-title">Selamat Datang, <span id="welcomeUserName">User</span>!</h2>
+                            <p class="welcome-message" id="welcomeMessage">Semoga hari ini menjadi hari yang produktif.</p>
+                            <div class="welcome-stats">
+                                <!-- Stats akan disesuaikan per role -->
+                                <div class="welcome-stat">
+                                    <span class="stat-number">0</span>
+                                    <span class="stat-label">Total Data</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="welcome-illustration">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quick Stats - Template yang bisa disesuaikan per role -->
+                <section class="dashboard-stats">
+                    <div class="stats-grid">
+                        <!-- Stats cards akan ditambahkan per role -->
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 class="stat-number">0</h3>
+                                <p class="stat-label">Total</p>
+                                <span class="stat-change neutral">Data template</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Dashboard Grid - Template yang bisa disesuaikan per role -->
+                <div class="dashboard-grid">
+                    <!-- Cards akan ditambahkan per role -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-info-circle"></i>
+                                Informasi
+                            </h3>
+                            <span class="current-time" id="currentTime">--:--</span>
+                        </div>
+                        <div class="card-content">
+                            <p>Template dashboard siap digunakan untuk semua role.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional content pages akan ditambahkan per role -->
+        </div>
+    </main>
+
+    <!-- JavaScript Loading - Konsisten untuk semua role -->
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard-base.js"></script>
+    <!-- Role-specific JavaScript akan ditambahkan sesuai kebutuhan -->
+</body>
+</html>

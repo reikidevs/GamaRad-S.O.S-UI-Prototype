@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Guru - Sakola Pintar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/dashboard-flash-fix.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+    <!-- Dashboard Preloader -->
+    <div class="dashboard-preloader">
+        <div class="preloader-content">
+            <div class="preloader-spinner"></div>
+            <div class="preloader-text">Memuat Dashboard...</div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Sakola Pintar</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li class="nav-item active">
+                    <a href="#dashboard" class="nav-link" data-page="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#classes" class="nav-link" data-page="classes">
+                        <i class="fas fa-chalkboard"></i>
+                        <span>Kelas Saya</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#subjects" class="nav-link" data-page="subjects">
+                        <i class="fas fa-book"></i>
+                        <span>Mata Pelajaran</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#materials" class="nav-link" data-page="materials">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Materi Ajar</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#assignments" class="nav-link" data-page="assignments">
+                        <i class="fas fa-tasks"></i>
+                        <span>Tugas</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#grades" class="nav-link" data-page="grades">
+                        <i class="fas fa-star"></i>
+                        <span>Penilaian</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#attendance" class="nav-link" data-page="attendance">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Kehadiran</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#schedule" class="nav-link" data-page="schedule">
+                        <i class="fas fa-clock"></i>
+                        <span>Jadwal</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#reports" class="nav-link" data-page="reports">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Laporan</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#profile" class="nav-link" data-page="profile">
+                        <i class="fas fa-user"></i>
+                        <span>Profil</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <div class="user-details">
+                    <span class="user-name" id="userName">Budi Santoso</span>
+                    <span class="user-role">Guru</span>
+                </div>
+            </div>
+            <button class="logout-btn" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="page-title" id="pageTitle">Dashboard</h1>
+            </div>
+            <div class="header-right">
+                <div class="header-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Cari siswa, kelas, materi...">
+                </div>
+                <div class="header-notifications">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">5</span>
+                    </button>
+                </div>
+                <div class="header-profile">
+                    <img src="https://via.placeholder.com/40x40/4f46e5/ffffff?text=BS" alt="Profile" class="profile-img">
+                </div>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <div class="page-content" id="pageContent">
+            <!-- Dashboard Content -->
+            <div class="content-page active" id="dashboard-content">
+                <!-- Quick Stats -->
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-chalkboard"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>6</h3>
+                            <p>Kelas Aktif</p>
+                        </div>
+                        <div class="stat-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+2</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>180</h3>
+                            <p>Total Siswa</p>
+                        </div>
+                        <div class="stat-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+5</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>12</h3>
+                            <p>Tugas Pending</p>
+                        </div>
+                        <div class="stat-trend negative">
+                            <i class="fas fa-arrow-down"></i>
+                            <span>-3</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>92%</h3>
+                            <p>Kehadiran Rata-rata</p>
+                        </div>
+                        <div class="stat-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+2%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Dashboard Grid -->
+                <div class="dashboard-grid">
+                    <!-- Today's Schedule -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Jadwal Hari Ini</h3>
+                            <span class="card-date">Senin, 25 November 2024</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="schedule-list">
+                                <div class="schedule-item current">
+                                    <div class="schedule-time">
+                                        <span class="time">08:00 - 09:30</span>
+                                        <span class="status">Sedang Berlangsung</span>
+                                    </div>
+                                    <div class="schedule-info">
+                                        <h4>Matematika</h4>
+                                        <p>Kelas X-A • Ruang 101</p>
+                                        <span class="topic">Trigonometri Dasar</span>
+                                    </div>
+                                    <div class="schedule-actions">
+                                        <button class="btn-icon" title="Mulai Kelas">
+                                            <i class="fas fa-play"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="schedule-item">
+                                    <div class="schedule-time">
+                                        <span class="time">10:00 - 11:30</span>
+                                        <span class="status">Akan Datang</span>
+                                    </div>
+                                    <div class="schedule-info">
+                                        <h4>Matematika</h4>
+                                        <p>Kelas X-B • Ruang 102</p>
+                                        <span class="topic">Trigonometri Dasar</span>
+                                    </div>
+                                    <div class="schedule-actions">
+                                        <button class="btn-icon" title="Lihat Detail">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="schedule-item">
+                                    <div class="schedule-time">
+                                        <span class="time">13:00 - 14:30</span>
+                                        <span class="status">Akan Datang</span>
+                                    </div>
+                                    <div class="schedule-info">
+                                        <h4>Matematika</h4>
+                                        <p>Kelas XI-A • Ruang 201</p>
+                                        <span class="topic">Integral</span>
+                                    </div>
+                                    <div class="schedule-actions">
+                                        <button class="btn-icon" title="Lihat Detail">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activities -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Aktivitas Terbaru</h3>
+                            <button class="card-action">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-file-upload"></i>
+                                    </div>
+                                    <div class="activity-info">
+                                        <p>Materi "Trigonometri Dasar" berhasil diupload</p>
+                                        <span class="activity-time">30 menit yang lalu</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="activity-info">
+                                        <p>15 tugas dari Kelas X-A telah dinilai</p>
+                                        <span class="activity-time">2 jam yang lalu</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-calendar-plus"></i>
+                                    </div>
+                                    <div class="activity-info">
+                                        <p>Tugas baru "Latihan Integral" telah dibuat</p>
+                                        <span class="activity-time">4 jam yang lalu</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="activity-info">
+                                        <p>Kehadiran Kelas XI-B telah direkap</p>
+                                        <span class="activity-time">6 jam yang lalu</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pending Tasks -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Tugas Menunggu Review</h3>
+                            <span class="card-badge">12</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="task-list">
+                                <div class="task-item">
+                                    <div class="task-info">
+                                        <h4>Latihan Trigonometri</h4>
+                                        <p>Kelas X-A • 25 siswa</p>
+                                        <span class="task-deadline">Deadline: 28 Nov 2024</span>
+                                    </div>
+                                    <div class="task-status">
+                                        <span class="status-badge urgent">Urgent</span>
+                                        <button class="btn-small btn-primary">Review</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="task-item">
+                                    <div class="task-info">
+                                        <h4>Quiz Integral</h4>
+                                        <p>Kelas XI-A • 28 siswa</p>
+                                        <span class="task-deadline">Deadline: 30 Nov 2024</span>
+                                    </div>
+                                    <div class="task-status">
+                                        <span class="status-badge normal">Normal</span>
+                                        <button class="btn-small btn-primary">Review</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="task-item">
+                                    <div class="task-info">
+                                        <h4>PR Matematika Bab 5</h4>
+                                        <p>Kelas X-B • 30 siswa</p>
+                                        <span class="task-deadline">Deadline: 2 Des 2024</span>
+                                    </div>
+                                    <div class="task-status">
+                                        <span class="status-badge normal">Normal</span>
+                                        <button class="btn-small btn-primary">Review</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Class Performance -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Performa Kelas</h3>
+                            <select class="card-filter">
+                                <option>Bulan Ini</option>
+                                <option>Minggu Ini</option>
+                                <option>Hari Ini</option>
+                            </select>
+                        </div>
+                        <div class="card-content">
+                            <div class="performance-list">
+                                <div class="performance-item">
+                                    <div class="class-info">
+                                        <h4>Kelas X-A</h4>
+                                        <p>30 siswa</p>
+                                    </div>
+                                    <div class="performance-stats">
+                                        <div class="stat">
+                                            <span class="label">Rata-rata</span>
+                                            <span class="value good">85.5</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="label">Kehadiran</span>
+                                            <span class="value excellent">95%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="performance-item">
+                                    <div class="class-info">
+                                        <h4>Kelas X-B</h4>
+                                        <p>28 siswa</p>
+                                    </div>
+                                    <div class="performance-stats">
+                                        <div class="stat">
+                                            <span class="label">Rata-rata</span>
+                                            <span class="value good">82.3</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="label">Kehadiran</span>
+                                            <span class="value good">88%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="performance-item">
+                                    <div class="class-info">
+                                        <h4>Kelas XI-A</h4>
+                                        <p>32 siswa</p>
+                                    </div>
+                                    <div class="performance-stats">
+                                        <div class="stat">
+                                            <span class="label">Rata-rata</span>
+                                            <span class="value excellent">88.7</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="label">Kehadiran</span>
+                                            <span class="value excellent">92%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Aksi Cepat</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="quick-actions">
+                                <button class="action-btn" data-action="create-material">
+                                    <i class="fas fa-plus-circle"></i>
+                                    <span>Buat Materi</span>
+                                </button>
+                                <button class="action-btn" data-action="create-assignment">
+                                    <i class="fas fa-tasks"></i>
+                                    <span>Buat Tugas</span>
+                                </button>
+                                <button class="action-btn" data-action="take-attendance">
+                                    <i class="fas fa-check-square"></i>
+                                    <span>Absen Kelas</span>
+                                </button>
+                                <button class="action-btn" data-action="grade-assignments">
+                                    <i class="fas fa-star"></i>
+                                    <span>Nilai Tugas</span>
+                                </button>
+                                <button class="action-btn" data-action="send-announcement">
+                                    <i class="fas fa-bullhorn"></i>
+                                    <span>Pengumuman</span>
+                                </button>
+                                <button class="action-btn" data-action="view-reports">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <span>Lihat Laporan</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Deadlines -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Deadline Mendatang</h3>
+                            <button class="card-action">
+                                <i class="fas fa-calendar-alt"></i>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <div class="deadline-list">
+                                <div class="deadline-item urgent">
+                                    <div class="deadline-date">
+                                        <span class="day">26</span>
+                                        <span class="month">Nov</span>
+                                    </div>
+                                    <div class="deadline-info">
+                                        <h4>Pengumpulan Nilai UTS</h4>
+                                        <p>Semua kelas</p>
+                                        <span class="time-left">1 hari lagi</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="deadline-item normal">
+                                    <div class="deadline-date">
+                                        <span class="day">28</span>
+                                        <span class="month">Nov</span>
+                                    </div>
+                                    <div class="deadline-info">
+                                        <h4>Rapat Evaluasi Pembelajaran</h4>
+                                        <p>Ruang Guru</p>
+                                        <span class="time-left">3 hari lagi</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="deadline-item normal">
+                                    <div class="deadline-date">
+                                        <span class="day">30</span>
+                                        <span class="month">Nov</span>
+                                    </div>
+                                    <div class="deadline-info">
+                                        <h4>Deadline Tugas Integral</h4>
+                                        <p>Kelas XI-A</p>
+                                        <span class="time-left">5 hari lagi</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Classes Content -->
+            <div class="content-page" id="classes-content">
+                <div class="page-header">
+                    <h2>Kelas Saya</h2>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-plus"></i>
+                        Tambah Kelas
+                    </button>
+                </div>
+                
+                <div class="classes-grid">
+                    <div class="class-card">
+                        <div class="class-header">
+                            <div class="class-info">
+                                <h3>Kelas X-A</h3>
+                                <p>Matematika</p>
+                            </div>
+                            <div class="class-menu">
+                                <button class="btn-icon">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="class-stats">
+                            <div class="stat">
+                                <i class="fas fa-users"></i>
+                                <span>30 Siswa</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-calendar"></i>
+                                <span>3x/minggu</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>90 menit</span>
+                            </div>
+                        </div>
+                        <div class="class-progress">
+                            <div class="progress-info">
+                                <span>Progress Materi</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="class-actions">
+                            <button class="btn btn-outline">Lihat Detail</button>
+                            <button class="btn btn-primary">Masuk Kelas</button>
+                        </div>
+                    </div>
+
+                    <div class="class-card">
+                        <div class="class-header">
+                            <div class="class-info">
+                                <h3>Kelas X-B</h3>
+                                <p>Matematika</p>
+                            </div>
+                            <div class="class-menu">
+                                <button class="btn-icon">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="class-stats">
+                            <div class="stat">
+                                <i class="fas fa-users"></i>
+                                <span>28 Siswa</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-calendar"></i>
+                                <span>3x/minggu</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>90 menit</span>
+                            </div>
+                        </div>
+                        <div class="class-progress">
+                            <div class="progress-info">
+                                <span>Progress Materi</span>
+                                <span>68%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 68%"></div>
+                            </div>
+                        </div>
+                        <div class="class-actions">
+                            <button class="btn btn-outline">Lihat Detail</button>
+                            <button class="btn btn-primary">Masuk Kelas</button>
+                        </div>
+                    </div>
+
+                    <div class="class-card">
+                        <div class="class-header">
+                            <div class="class-info">
+                                <h3>Kelas XI-A</h3>
+                                <p>Matematika</p>
+                            </div>
+                            <div class="class-menu">
+                                <button class="btn-icon">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="class-stats">
+                            <div class="stat">
+                                <i class="fas fa-users"></i>
+                                <span>32 Siswa</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-calendar"></i>
+                                <span>4x/minggu</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>90 menit</span>
+                            </div>
+                        </div>
+                        <div class="class-progress">
+                            <div class="progress-info">
+                                <span>Progress Materi</span>
+                                <span>82%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 82%"></div>
+                            </div>
+                        </div>
+                        <div class="class-actions">
+                            <button class="btn btn-outline">Lihat Detail</button>
+                            <button class="btn btn-primary">Masuk Kelas</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subjects Content -->
+            <div class="content-page" id="subjects-content">
+                <div class="page-header">
+                    <h2>Mata Pelajaran</h2>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-plus"></i>
+                        Tambah Mata Pelajaran
+                    </button>
+                </div>
+                
+                <div class="subjects-list">
+                    <div class="subject-card">
+                        <div class="subject-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div class="subject-info">
+                            <h3>Matematika</h3>
+                            <p>Mata pelajaran utama untuk kelas X dan XI</p>
+                            <div class="subject-meta">
+                                <span><i class="fas fa-users"></i> 6 Kelas</span>
+                                <span><i class="fas fa-book"></i> 24 Materi</span>
+                                <span><i class="fas fa-tasks"></i> 18 Tugas</span>
+                            </div>
+                        </div>
+                        <div class="subject-actions">
+                            <button class="btn btn-outline">Edit</button>
+                            <button class="btn btn-primary">Kelola</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Materials Content -->
+            <div class="content-page" id="materials-content">
+                <div class="page-header">
+                    <h2>Materi Ajar</h2>
+                    <div class="page-actions">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Cari materi...">
+                        </div>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Upload Materi
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="materials-grid">
+                    <div class="material-card">
+                        <div class="material-type">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="material-info">
+                            <h4>Trigonometri Dasar</h4>
+                            <p>Kelas X • Matematika</p>
+                            <div class="material-meta">
+                                <span>PDF • 2.5 MB</span>
+                                <span>25 Nov 2024</span>
+                            </div>
+                        </div>
+                        <div class="material-actions">
+                            <button class="btn-icon" title="Download">
+                                <i class="fas fa-download"></i>
+                            </button>
+                            <button class="btn-icon" title="Share">
+                                <i class="fas fa-share"></i>
+                            </button>
+                            <button class="btn-icon" title="Edit">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="material-card">
+                        <div class="material-type">
+                            <i class="fas fa-file-powerpoint"></i>
+                        </div>
+                        <div class="material-info">
+                            <h4>Integral Tak Tentu</h4>
+                            <p>Kelas XI • Matematika</p>
+                            <div class="material-meta">
+                                <span>PPT • 5.2 MB</span>
+                                <span>24 Nov 2024</span>
+                            </div>
+                        </div>
+                        <div class="material-actions">
+                            <button class="btn-icon" title="Download">
+                                <i class="fas fa-download"></i>
+                            </button>
+                            <button class="btn-icon" title="Share">
+                                <i class="fas fa-share"></i>
+                            </button>
+                            <button class="btn-icon" title="Edit">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="material-card">
+                        <div class="material-type">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <div class="material-info">
+                            <h4>Video Penjelasan Limit</h4>
+                            <p>Kelas XI • Matematika</p>
+                            <div class="material-meta">
+                                <span>MP4 • 45 MB</span>
+                                <span>23 Nov 2024</span>
+                            </div>
+                        </div>
+                        <div class="material-actions">
+                            <button class="btn-icon" title="Play">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <button class="btn-icon" title="Share">
+                                <i class="fas fa-share"></i>
+                            </button>
+                            <button class="btn-icon" title="Edit">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other content pages will be loaded dynamically -->
+        </div>
+    </main>
+
+    <script src="js/template-config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard-base.js"></script>
+    <script src="js/dashboard-teacher.js"></script>
+</body>
+</html>

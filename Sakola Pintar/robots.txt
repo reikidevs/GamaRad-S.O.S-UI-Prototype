@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /login.html
+Allow: /register.html
+Allow: /css/
+Allow: /js/
+
+# Disallow dashboard pages from search engines for security
+Disallow: /dashboard-admin.html
+Disallow: /dashboard-teacher.html
+Disallow: /dashboard-student.html
+
+# Allow sitemap
+Sitemap: https://sakolapintar.com/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
