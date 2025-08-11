@@ -21,36 +21,42 @@
   - Ukuran: 1000x800px
   - Format: WebP optimized
 
-### Gallery Section
+### Gallery Section - "Lingkungan Belajar yang Inspiratif"
 
-1. **Teknologi dalam Pembelajaran**
+1. **Kelas Digital Interaktif**
+
+   - URL: `https://images.unsplash.com/photo-1562774053-701939374585`
+   - Photographer: Compare Fibre
+   - Deskripsi: Ruang kelas modern dengan teknologi interaktif
+
+2. **Suasana Belajar Inspiratif**
+
+   - URL: `https://images.unsplash.com/photo-1544717297-fa95b6ee9643`
+   - Photographer: Kimberly Farmer
+   - Deskripsi: Lingkungan yang mendukung kreativitas dan semangat belajar
+
+3. **Pusat Pembelajaran Modern**
+
+   - URL: `https://images.unsplash.com/photo-1523240795612-9a054b0db644`
+   - Photographer: Changbok Ko
+   - Deskripsi: Perpustakaan dan area belajar yang dirancang untuk eksplorasi ilmu
+
+4. **Inovasi Teknologi Pendidikan**
 
    - URL: `https://images.unsplash.com/photo-1509062522246-3755977927d7`
    - Photographer: ThisisEngineering RAEng
+   - Deskripsi: Pemanfaatan teknologi terdepan untuk pembelajaran efektif
 
-2. **Pembelajaran Kolaboratif**
+5. **Kolaborasi yang Menginspirasi**
 
    - URL: `https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b`
    - Photographer: Priscilla Du Preez
+   - Deskripsi: Membangun semangat kerjasama dalam belajar
 
-3. **Pengajaran Berkualitas**
-
-   - URL: `https://images.unsplash.com/photo-1497486751825-1233686d5d80`
-   - Photographer: NeONBRAND
-
-4. **Fasilitas Modern**
-
-   - URL: `https://images.unsplash.com/photo-1581726690015-c9861fa5057f`
-   - Photographer: Alfons Morales
-
-5. **Pengembangan Kepercayaan Diri**
-
+6. **Ruang Eksplorasi Kreativitas**
    - URL: `https://images.unsplash.com/photo-1503676260728-1c00da094a0b`
    - Photographer: NeONBRAND
-
-6. **Kegiatan Ekstrakurikuler**
-   - URL: `https://images.unsplash.com/photo-1427504494785-3a9ca7044f45`
-   - Photographer: Tra Nguyen
+   - Deskripsi: Area khusus untuk mengembangkan kemampuan presentasi dan ekspresi diri
 
 ### Feature Cards
 
